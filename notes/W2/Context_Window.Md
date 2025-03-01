@@ -20,7 +20,8 @@ Source: [OpenAI Documentation](https://platform.openai.com/docs/models#context-w
 
 ---
 
-![Context windows max token](/notes/W2/context-window2.png)
+![Context windows max token](https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W2/context-window2.png)
+
 When making a request, the tokens from the system prompt and user prompt appear to be stored in a "memory." Then, the model generates the output.  
 
 Then when we do Follow-up Questions  
