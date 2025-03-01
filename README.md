@@ -57,7 +57,10 @@ Welcome to our comprehensive 8-week journey through the cutting-edge world of Ge
 
 - 
 ## Projects
-1. [Project 1 Name](./projects/project1-chatbot) - A brief description
+1. # LLM_Eng_Outfit_Assistant  
+The **Outfit Assistant** is an AI-powered tool that provides outfit recommendations based on the user's city and current weather conditions. Additionally, it can generate outfit images tailored to the user's gender, age, and color preferences.
+
+
 2. [Project 2 Name](./projects/project2-text-generation) - A brief description
 
 ## Notes
