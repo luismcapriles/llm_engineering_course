@@ -1,6 +1,3 @@
-Here’s your text converted into Markdown:  
-
-```markdown
 # Context Window  
 **Saturday, January 11, 2025**  
 **1:35 PM**  
@@ -17,13 +14,16 @@ For example, when making an API request to chat completions with the o1 model, t
 
 Tokens generated in excess of the context window limit may be truncated in API responses.  
 
+![Context window](/notes/W2/context-window.png)
+
 Source: [OpenAI Documentation](https://platform.openai.com/docs/models#context-window)  
 
 ---
 
+![Context windows max token](/notes/W2/context-window2.png)
 When making a request, the tokens from the system prompt and user prompt appear to be stored in a "memory." Then, the model generates the output.  
 
-### Follow-up Questions  
+Then when we do Follow-up Questions  
 
 What really happens is that a new request is embedded with the history of the chat. This results in a larger prompt so the model can predict the most probable next token.  
 
@@ -62,4 +62,4 @@ For typical conversations, even long ones, **costs remain minimal**.
 This matters more for chatbots handling **tens of thousands of conversations daily**, but for **most users, the expense is negligible**.  
 
 Source: [Udemy - LLM Engineering Course](https://www.udemy.com/course/llm-engineering-master-ai-and-large-language-models/learn/lecture/46871427#questions/22706365)  
-```  
+
