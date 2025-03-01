@@ -14,13 +14,16 @@ For example, when making an API request to chat completions with the o1 model, t
 
 Tokens generated in excess of the context window limit may be truncated in API responses.  
 
+[Context window](context-window.png)
+
 Source: [OpenAI Documentation](https://platform.openai.com/docs/models#context-window)  
 
 ---
 
+[Context windows max token](context-window2.png)
 When making a request, the tokens from the system prompt and user prompt appear to be stored in a "memory." Then, the model generates the output.  
 
-### Follow-up Questions  
+Then when we do Follow-up Questions  
 
 What really happens is that a new request is embedded with the history of the chat. This results in a larger prompt so the model can predict the most probable next token.  
 
