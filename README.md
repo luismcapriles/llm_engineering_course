@@ -61,7 +61,8 @@ Welcome to our comprehensive 8-week journey through the cutting-edge world of Ge
 The **Outfit Assistant** is an AI-powered tool that provides outfit recommendations based on the user's city and current weather conditions. Additionally, it can generate outfit images tailored to the user's gender, age, and color preferences.
 
 
-2. [Project 2 Name](./projects/project2-text-generation) - A brief description
+2. [Company Brochure Generator](https://github.com/luismcapriles/llm_engineering_course/tree/main/projects/Company_Brochure)
+   Business Gen AI product that scrapes the web, makes decisions, and creates formatted sales brochures
 
 ## Notes
 My technical notes are organized by topic in the [notes](./notes) directory.
