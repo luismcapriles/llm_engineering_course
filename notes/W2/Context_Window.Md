@@ -14,7 +14,7 @@ For example, when making an API request to chat completions with the o1 model, t
 
 Tokens generated in excess of the context window limit may be truncated in API responses.  
 
-![Context window](/notes/W2/context-window.png)
+![Context window](https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W2/context-window.png)
 
 Source: [OpenAI Documentation](https://platform.openai.com/docs/models#context-window)  
 
