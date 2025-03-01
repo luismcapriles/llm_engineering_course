@@ -1,6 +1,3 @@
-Here’s your text converted into Markdown:  
-
-```markdown
 # Context Window  
 **Saturday, January 11, 2025**  
 **1:35 PM**  
@@ -62,4 +59,4 @@ For typical conversations, even long ones, **costs remain minimal**.
 This matters more for chatbots handling **tens of thousands of conversations daily**, but for **most users, the expense is negligible**.  
 
 Source: [Udemy - LLM Engineering Course](https://www.udemy.com/course/llm-engineering-master-ai-and-large-language-models/learn/lecture/46871427#questions/22706365)  
-```  
+
