@@ -16,7 +16,7 @@ Welcome to our comprehensive 8-week journey through the cutting-edge world of Ge
 - 🛠️ Build your first business Gen AI product that scrapes the web, makes decisions, and creates formatted sales brochures
 
 ### Week 2: Frontier APIs and Customer Service Chatbots
-- 🔌 Explore Frontier APIs and interact with three leading models  [notes](./code_examples/LLM_basics)
+- 🔌 Explore Frontier APIs and interact with three leading models  [LLM Basics Notebook](notes/code_examples/LLM_basics.ipynb)
 - 💬 Develop a customer service chatbot with a sharp UI that can interact with text, images, audio, and utilize tools or agents
 
 ### Week 3: Embracing Open-Source Models
