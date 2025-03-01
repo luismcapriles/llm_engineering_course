@@ -13,7 +13,7 @@ Welcome to our comprehensive 8-week journey through the cutting-edge world of Ge
 ### Week 1: Foundations and First Projects
 - 🧠 Dive into the fundamentals of Transformers
 - 🔍 Experiment with six leading Frontier Models
-- 🛠️ Build your first business Gen AI product that scrapes the web, makes decisions, and creates formatted sales brochures
+- 🛠️ Build your first business Gen AI product that scrapes the web, makes decisions, and creates formatted sales brochures [Company Brochure Generator](https://github.com/luismcapriles/llm_engineering_course/tree/main/projects/Company_Brochure)
 
 ### Week 2: Frontier APIs and Customer Service Chatbots
 - 🔌 Explore Frontier APIs and interact with three leading models  [LLM Basics Notebook](notes/code_examples/LLM_basics.ipynb)
