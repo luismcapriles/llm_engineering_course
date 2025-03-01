@@ -57,7 +57,7 @@ Welcome to our comprehensive 8-week journey through the cutting-edge world of Ge
 
 - 
 ## Projects
-1. [LLM Outfit Assistnat](https://github.com/luismcapriles/llm_engineering_course/tree/main/projects/LLM_Outfit_Assistant) 
+1. [LLM Outfit Assistnat](https://github.com/luismcapriles/LLM_Eng_Outfit_Assistant) 
 The **Outfit Assistant** is an AI-powered tool that provides outfit recommendations based on the user's city and current weather conditions. Additionally, it can generate outfit images tailored to the user's gender, age, and color preferences.
 
 
