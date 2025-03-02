@@ -29,7 +29,8 @@ If you ask an LLM, *"What's 15% of 240?"*, it might try to calculate the answer 
 ### With a Calculator Tool:  
 The LLM can use a precise calculation function and return the exact result: **36**.  
 
-##A tool is a function in this case get ticket price given a city
+## Code example
+## A tool is a function in this case get ticket price given a city
 ```bash
 ticket_prices = {"london": "$799", "paris": "$899", "tokyo": "$1400", "berlin": "$222",'caracas':"$1200"}
 
