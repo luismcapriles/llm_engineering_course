@@ -104,27 +104,52 @@ my_pipeline = pipeline("the_task_I_want_to_do")
 result = my_pipeline(my_input)
 ```
 
-*Note:* Each pipeline has a different **default model** if you don't specify:
+# **Note:** Each pipeline has a different **default model** if you don't specify:
 
 ![Pipelines](https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W3/HF_pipelines.png)
 ![Diffusers](https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W3/HF_diffusers.png)
 
-# Transformer format:
+# Transformer format: check code examples in [Pipelines]()
 ```python
 from transformers import pipeline
 
-# Text generation
-text_generator = pipeline("text-generation")
+# Classification
+classifier = pipeline("zero-shot-classification", device="cuda")
+result = classifier("Hugging Face's Transformers library is amazing!", candidate_labels=["technology", "sports", "politics"])
+print(result)
 
 # Sentiment analysis
-sentiment_analyzer = pipeline("sentiment-analysis")
+classifier = pipeline("sentiment-analysis", device="cuda")
+result = classifier("I'm super excited to be on the way to LLM mastery!")
+print(result)
 
 # Translation
-translator = pipeline("translation")
+translator = pipeline("translation_en_to_fr", device="cuda")
+result = translator("The Data Scientists were truly amazed by the power and simplicity of the HuggingFace pipeline API.")
+print(result[0]['translation_text'])
+
+# Another translation, showing a model being specified
+# All translation models are here: https://huggingface.co/models?pipeline_tag=translation&sort=trending
+translator = pipeline("translation_en_to_es", model="Helsinki-NLP/opus-mt-en-es", device="cuda")
+result = translator("The Data Scientists were truly amazed by the power and simplicity of the HuggingFace pipeline API.")
+print(result[0]['translation_text'])
+
 ```
 # Diffiusers format:
 ```python
 from diffusers import StableDiffusionPipeline, DiffusionPipeline 
+
+# Image Generation
+image_gen = DiffusionPipeline.from_pretrained(
+    "stabilityai/stable-diffusion-2",
+    torch_dtype=torch.float16,
+    use_safetensors=True,
+    variant="fp16"
+    ).to("cuda")
+
+text = "A class of Data Scientists learning about AI, in the surreal style of Salvador Dali"
+image = image_gen(prompt=text).images[0]
+image
 
 # Text-to-image
  text2img = StableDiffusionPipeline.from_pretrained("stable-diffusion-v1-5") 
