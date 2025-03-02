@@ -21,6 +21,7 @@ Welcome to our comprehensive 8-week journey through the cutting-edge world of Ge
 - 📝 Check W2 notes: [W2](./notes/W2)
 
 ### Week 3: Embracing Open-Source Models
+- 📊 Introduction to Google Colab ($)
 - 🤗 Discover the world of Open-Source models using HuggingFace
 - 🎯 Tackle 10 common Gen AI use cases, from translation to image generation
 - 📝 Build a product to generate meeting minutes and action items from recordings
