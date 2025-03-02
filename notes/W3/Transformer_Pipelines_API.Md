@@ -92,8 +92,8 @@ The **High-Level API** for using open-source models for typical inference tasks 
    - **Transformers** use **sequence modeling and attention mechanisms**.
    - **Diffusers** use the **diffusion process** (gradually removing noise).
    
-   For most general audio generation tasks, the **Transformers library** might be more commonly used since it includes popular models like **MusicGen and Bark**. However, if you're specifically interested in **diffusion-based audio generation**, you'd want to use **Diffusers**.
-<details>
+   For most general audio generation tasks, the **Transformers library** might be more commonly used since it includes popular models like **MusicGen and Bark**. However, if you're specifically interested in **diffusion-based audio generation**, you'd want to use **Diffusers**.<details>
+
 
 
 You create a pipeline using:
