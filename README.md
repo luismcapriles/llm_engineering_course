@@ -17,7 +17,8 @@ Welcome to our comprehensive 8-week journey through the cutting-edge world of Ge
 
 ### Week 2: Frontier APIs and Customer Service Chatbots
 - 🔌 Explore Frontier APIs and interact with three leading models  [LLM Basics Notebook](notes/code_examples/LLM_basics.ipynb)
-- 💬 Develop a customer service chatbot with a sharp UI that can interact with text, images, audio, and utilize tools or agents [LLM Outfit Assistnat](https://github.com/luismcapriles/LLM_Eng_Outfit_Assistant)
+- 💬 Develop a chatbot with Gradio that can interact with text, images, audio, and utilize tools or agents [LLM Outfit Assistnat](https://github.com/luismcapriles/LLM_Eng_Outfit_Assistant)
+- 📝 Check W2 notes: [W2](./notes/W2)
 
 ### Week 3: Embracing Open-Source Models
 - 🤗 Discover the world of Open-Source models using HuggingFace
