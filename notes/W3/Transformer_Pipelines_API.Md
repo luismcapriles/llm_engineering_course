@@ -57,7 +57,7 @@ In this code, `device="cuda"` specifies that the text generation pipeline should
    - **CUDA toolkit** installed.
    - **PyTorch installed with CUDA support**.
      - *Note:* Your PyTorch version must match your CUDA version. For example, if you have CUDA 11.8: Download and Install Pytorch as this
-     [Pytorch]()
+     [Pytorch](https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W3/pytorch.PNG)
 
 ### If you don't have a CUDA-capable GPU:
 - **Remove** the `device` parameter entirely (it will default to **CPU**).
