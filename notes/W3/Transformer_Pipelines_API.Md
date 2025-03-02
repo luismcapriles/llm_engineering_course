@@ -36,6 +36,8 @@ result = my_pipeline(my_input)
 
 *Note:* Each pipeline has a different **default model** if you don't specify:
 
+(https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W3/HF_pipelines.png)
+
 ---
 
 ## Example of Sentiment Analysis
