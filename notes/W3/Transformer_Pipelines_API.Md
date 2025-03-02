@@ -48,9 +48,6 @@ The **High-Level API** for using open-source models for typical inference tasks 
          -  Perform image-to-image translation
 <details>
 <summary><strong>**Note on Audio generation**</strong></summary>
-Here’s your content converted into Markdown format:
-
-```markdown
 # Audio Generation: Transformers vs. Diffusers
 
 Audio generation can actually be found in both libraries, but they handle different types of audio generation approaches:
@@ -96,8 +93,8 @@ audio = pipe("a dog barking in a park").audio[0]
 - **Diffusers** use the **diffusion process** (gradually removing noise).
 
 For most general audio generation tasks, the **Transformers library** might be more commonly used since it includes popular models like **MusicGen and Bark**. However, if you're specifically interested in **diffusion-based audio generation**, you'd want to use **Diffusers**.
-```
 <details>
+
 You create a pipeline using:
 
 ```python
