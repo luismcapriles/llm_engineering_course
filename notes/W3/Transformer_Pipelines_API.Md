@@ -31,20 +31,10 @@ You create a pipeline using:
 
 ```python
 my_pipeline = pipeline("the_task_I_want_to_do")
-```
-
-Followed by:
-
-```python
 result = my_pipeline(my_input)
 ```
 
-Each pipeline has a different **default model** if you don't specify:
-
-```python
-my_pipeline = pipeline("the_task_I_want_to_do")
-result = my_pipeline(my_input)
-```
+*Note:*Each pipeline has a different **default model** if you don't specify:
 
 ---
 
