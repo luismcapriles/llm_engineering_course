@@ -48,8 +48,8 @@ result = classifier("I feel that tool is completely inadequate to help us. ")
 print(result)
 ```
 <details>
-<summary><strong>Click to expand</strong></summary>
-### What does `device="cuda"` do?
+<summary><strong>What does `device="cuda"` do?</strong></summary>
+
 In this code, `device="cuda"` specifies that the text generation pipeline should run on an **NVIDIA GPU (Graphics Processing Unit)** rather than the CPU. **CUDA (Compute Unified Device Architecture)** is NVIDIA's parallel computing platform and programming model.
 
 ### Benefits of using CUDA:
@@ -73,4 +73,4 @@ To check if your system has CUDA support, run:
 import torch
 print(torch.cuda.is_available())
 ```
-</details>```
+</details>
