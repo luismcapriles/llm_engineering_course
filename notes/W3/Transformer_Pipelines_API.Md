@@ -42,7 +42,7 @@ result = my_pipeline(my_input)
 
 ```python
 classifier = pipeline("sentiment-analysis", device="cuda")
-result = classifier(". I feel that Atoll is completely inadequate to help us. ")
+result = classifier("I feel that tool is completely inadequate to help us. ")
 print(result)
 ```
 
