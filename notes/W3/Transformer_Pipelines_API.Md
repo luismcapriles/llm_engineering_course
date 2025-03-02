@@ -48,7 +48,7 @@ result = classifier("I feel that tool is completely inadequate to help us. ")
 print(result)
 ```
 <details>
-<summary><strong>What does `device="cuda"` do?</strong></summary>
+<summary><strong>What does device="cuda" do?</strong></summary>
 
 In this code, `device="cuda"` specifies that the text generation pipeline should run on an **NVIDIA GPU (Graphics Processing Unit)** rather than the CPU. **CUDA (Compute Unified Device Architecture)** is NVIDIA's parallel computing platform and programming model.
 
