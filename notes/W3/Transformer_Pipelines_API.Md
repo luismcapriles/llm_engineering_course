@@ -48,7 +48,7 @@ The **High-Level API** for using open-source models for typical inference tasks 
          -  Perform image-to-image translation
 
 <details><summary><strong>Note on Audio generation</strong></summary>
-   # Audio Generation: Transformers vs. Diffusers
+   ### Audio Generation: Transformers vs. Diffusers
    
    Audio generation can actually be found in both libraries, but they handle different types of audio generation approaches:
    
