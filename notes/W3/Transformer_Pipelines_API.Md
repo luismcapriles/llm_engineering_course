@@ -27,26 +27,26 @@ The HuggingFace transformers library provides APIs at two different levels:
 
 The **High-Level API** for using open-source models for typical inference tasks is called **"pipelines"**. It's incredibly easy to use.
 
-The main differences between *Transformers* and *Diffusers* pipelines are:
-- Transformers pipelines are used for processing and understanding *existing content* (text, speech, images...)
-- Diffuser pipelines are specifically designed for *generating new content*, particularly images..
+## The main differences between *Transformers* and *Diffusers* pipelines are:
+- Transformers pipelines are used for processing and understanding **existing content** (text, speech, images...)
+- Diffuser pipelines are specifically designed for **generating new content**, particularly images..
 
 
-   - You would use transformers pipelines when you want to:
-      	• Convert speech to text (speech recognition)
-      	• Summarize text
-      	• Translate languages
-      	• Classify text or images
-      	• Extract information from text
-      	• Answer questions
-      	• Analyze sentiment
+   - **You would use transformers pipelines when you want to:**
+      	-  Convert speech to text (speech recognition)
+      	-  Summarize text
+      	-  Translate languages
+      	-  Classify text or images
+      	-  Extract information from text
+      	-  Answer questions
+      	-  Analyze sentiment
 
-   - You would use diffusers when you want to:
-      	• Generate images from text descriptions (like Stable Diffusion)
-      	• Create image variations
-      	• Edit or modify existing images
-      	• Generate video frames
-         • Perform image-to-image translation
+   - **You would use diffusers when you want to:**
+      	-  Generate images from text descriptions (like Stable Diffusion)
+      	-  Create image variations
+      	-  Edit or modify existing images
+      	-  Generate video frames
+         -  Perform image-to-image translation
 
 
 
