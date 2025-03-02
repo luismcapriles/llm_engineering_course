@@ -108,6 +108,31 @@ result = my_pipeline(my_input)
 
 ![Pipelines](https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W3/HF_pipelines.png)
 
+
+# Transformer format:
+```python
+from transformers import pipeline
+
+# Text generation
+text_generator = pipeline("text-generation")
+
+# Sentiment analysis
+sentiment_analyzer = pipeline("sentiment-analysis")
+
+# Translation
+translator = pipeline("translation")
+```
+# Diffiusers format:
+```python
+from diffusers import StableDiffusionPipeline, DiffusionPipeline 
+
+# Text-to-image
+ text2img = StableDiffusionPipeline.from_pretrained("stable-diffusion-v1-5") 
+
+# Image-to-image 
+img2img = StableDiffusionPipeline.from_pretrained("stable-diffusion-image-variation")
+```
+
 ---
 
 ## Example of Sentiment Analysis
@@ -145,4 +170,11 @@ print(torch.cuda.is_available())
 ```
 </details>
 
+### All the available pipelines
+Here are all the pipelines available from Transformers and Diffusers.
 
+# 🤖Transformer list:
+https://huggingface.co/docs/transformers/main_classes/pipelines
+
+#🧠 Diffusers list:
+https://huggingface.co/docs/diffusers/en/api/pipelines/overview
