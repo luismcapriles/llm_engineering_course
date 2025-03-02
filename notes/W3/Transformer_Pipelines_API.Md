@@ -47,52 +47,52 @@ The **High-Level API** for using open-source models for typical inference tasks 
       	-  Generate video frames
          -  Perform image-to-image translation
 
-<summary><strong>Note on Audio generation</strong></summary>
-# Audio Generation: Transformers vs. Diffusers
-
-Audio generation can actually be found in both libraries, but they handle different types of audio generation approaches:
-
-## 1. Transformers:
-- Handles audio generation through models like **MusicGen, Bark, and AudioLDM**.
-- Typically uses **transformer-based architectures**.
-- Good for tasks like **text-to-speech, music generation from text descriptions**.
-
-### Example:
-```python
-from transformers import pipeline
-
-# Using MusicGen
-music_generator = pipeline("text-to-audio", "facebook/musicgen-small")
-music = music_generator("An electronic dance song with a strong beat")
-
-# Using Bark for text-to-speech
-speech_generator = pipeline("text-to-speech", "suno/bark-small")
-speech = speech_generator("Hello, how are you?")
-```
-
----
-
-## 2. Diffusers:
-- Handles audio generation through **diffusion-based models**.
-- Specializes in models that use the **diffusion process** (gradually denoising random noise).
-- Examples include **AudioLDM2, Dance Diffusion**.
-
-### Example:
-```python
-from diffusers import AudioLDM2Pipeline
-import torch
-
-pipe = AudioLDM2Pipeline.from_pretrained("cvssp/audioldm2", torch_dtype=torch.float16)
-audio = pipe("a dog barking in a park").audio[0]
-```
-
----
-
-## Key Differences:
-- **Transformers** use **sequence modeling and attention mechanisms**.
-- **Diffusers** use the **diffusion process** (gradually removing noise).
-
-For most general audio generation tasks, the **Transformers library** might be more commonly used since it includes popular models like **MusicGen and Bark**. However, if you're specifically interested in **diffusion-based audio generation**, you'd want to use **Diffusers**.
+<details><summary><strong>Note on Audio generation</strong></summary>
+   # Audio Generation: Transformers vs. Diffusers
+   
+   Audio generation can actually be found in both libraries, but they handle different types of audio generation approaches:
+   
+   ## 1. Transformers:
+   - Handles audio generation through models like **MusicGen, Bark, and AudioLDM**.
+   - Typically uses **transformer-based architectures**.
+   - Good for tasks like **text-to-speech, music generation from text descriptions**.
+   
+   ### Example:
+   ```python
+   from transformers import pipeline
+   
+   # Using MusicGen
+   music_generator = pipeline("text-to-audio", "facebook/musicgen-small")
+   music = music_generator("An electronic dance song with a strong beat")
+   
+   # Using Bark for text-to-speech
+   speech_generator = pipeline("text-to-speech", "suno/bark-small")
+   speech = speech_generator("Hello, how are you?")
+   ```
+   
+   ---
+   
+   ## 2. Diffusers:
+   - Handles audio generation through **diffusion-based models**.
+   - Specializes in models that use the **diffusion process** (gradually denoising random noise).
+   - Examples include **AudioLDM2, Dance Diffusion**.
+   
+   ### Example:
+   ```python
+   from diffusers import AudioLDM2Pipeline
+   import torch
+   
+   pipe = AudioLDM2Pipeline.from_pretrained("cvssp/audioldm2", torch_dtype=torch.float16)
+   audio = pipe("a dog barking in a park").audio[0]
+   ```
+   
+   ---
+   
+   ## Key Differences:
+   - **Transformers** use **sequence modeling and attention mechanisms**.
+   - **Diffusers** use the **diffusion process** (gradually removing noise).
+   
+   For most general audio generation tasks, the **Transformers library** might be more commonly used since it includes popular models like **MusicGen and Bark**. However, if you're specifically interested in **diffusion-based audio generation**, you'd want to use **Diffusers**.
 <details>
 
 
