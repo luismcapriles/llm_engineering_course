@@ -25,6 +25,7 @@ Welcome to our comprehensive 8-week journey through the cutting-edge world of Ge
 - 🤗 Discover the world of Open-Source models using HuggingFace
 - 🎯 Tackle 10 common Gen AI use cases, from translation to image generation
 - 📝 Build a product to generate meeting minutes and action items from recordings
+- 📝 Check W3 notes: [W3](./notes/W3)
 
 ### Week 4: LLM Selection and Code Generation
 - 🧩 Understand the differences between LLMs and how to select the best one for your business tasks
