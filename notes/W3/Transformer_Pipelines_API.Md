@@ -107,7 +107,7 @@ result = my_pipeline(my_input)
 *Note:* Each pipeline has a different **default model** if you don't specify:
 
 ![Pipelines](https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W3/HF_pipelines.png)
-
+![Diffusers](https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W3/HF_diffusers.png)
 
 # Transformer format:
 ```python
@@ -173,7 +173,7 @@ print(torch.cuda.is_available())
 ### All the available pipelines
 Here are all the pipelines available from Transformers and Diffusers.
 
-# 🤖Transformer list:
+#🤖Transformer list:
 https://huggingface.co/docs/transformers/main_classes/pipelines
 
 #🧠 Diffusers list:
