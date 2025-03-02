@@ -34,7 +34,7 @@ my_pipeline = pipeline("the_task_I_want_to_do")
 result = my_pipeline(my_input)
 ```
 
-*Note:*Each pipeline has a different **default model** if you don't specify:
+*Note:* Each pipeline has a different **default model** if you don't specify:
 
 ---
 
