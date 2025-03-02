@@ -47,7 +47,7 @@ classifier = pipeline("sentiment-analysis", device="cuda")
 result = classifier("I feel that tool is completely inadequate to help us. ")
 print(result)
 ```
-
+<summary><strong>Click to expand</strong></summary>
 ### What does `device="cuda"` do?
 In this code, `device="cuda"` specifies that the text generation pipeline should run on an **NVIDIA GPU (Graphics Processing Unit)** rather than the CPU. **CUDA (Compute Unified Device Architecture)** is NVIDIA's parallel computing platform and programming model.
 
