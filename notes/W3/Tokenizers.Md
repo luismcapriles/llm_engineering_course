@@ -170,20 +170,20 @@ Tell a light-hearted joke for a room of Data Scientists<|im_end|>
 <details><summary><strong>More Details About Tokenizers</strong></summary>
 
 # More Details About Tokenizers
-
+### Padding Token:
 ```python
 tokenizer = AutoTokenizer.from_pretrained(LLAMA) 
 tokenizer.pad_token = tokenizer.eos_token 
 inputs = tokenizer.apply_chat_template(messages, return_tensors="pt").to("cuda")
 ```
 
-### Padding Token:
+### A common approach is to set it to **`eos_token`**:
 
 ```python
 tokenizer.pad_token = tokenizer.eos_token
 ```
 
-  <details><summary><strong>What is eos.token</strong></summary>
+  <details><summary><strong>What is **`eos_token`** ?</strong></summary>
   # Setting EOS as PAD  
   
   ```python
