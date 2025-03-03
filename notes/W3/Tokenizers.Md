@@ -165,3 +165,51 @@ You are a helpful assistant<|im_end|>
 <|im_start|>user
 Tell a light-hearted joke for a room of Data Scientists<|im_end|>
 <|im_start|>assistant
+
+
+<details><summary><strong>More Details About Tokenizers</strong></summary>
+
+# More Details About Tokenizers
+
+```python
+tokenizer = AutoTokenizer.from_pretrained(LLAMA) 
+tokenizer.pad_token = tokenizer.eos_token 
+inputs = tokenizer.apply_chat_template(messages, return_tensors="pt").to("cuda")
+```
+
+### Padding Token:
+
+```python
+tokenizer.pad_token = tokenizer.eos_token
+```
+
+The `.pad_token` is used to make all sequences in a batch the same length. For example:
+
+## Example:
+
+Let's say you have two sequences:
+
+```python
+seq1 = "Hello world"          # 2 tokens
+seq2 = "Hi there everyone!"   # 3 tokens
+```
+
+To process these together efficiently, they need to be the same length. The shorter sequence gets padded:
+
+```
+seq1: [Hello] [world] [PAD]
+seq2: [Hi] [there] [everyone!]
+```
+
+**NOTE:** Different models handle padding differently.
+
+</details>
+
+> Note:
+>For more information in Tokenizer visit: https://huggingface.co/docs/transformers/main_classes/tokenizer
+
+
+
+
+
+
