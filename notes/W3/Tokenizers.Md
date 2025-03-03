@@ -202,11 +202,9 @@ seq2: [Hi] [there] [everyone!]
 ```
 
 **NOTE:** Different models handle padding differently.
-
 </details>
 
-> Note:
->For more information in Tokenizer visit: https://huggingface.co/docs/transformers/main_classes/tokenizer
+For more information in Tokenizer visit: https://huggingface.co/docs/transformers/main_classes/tokenizer
 
 
 
