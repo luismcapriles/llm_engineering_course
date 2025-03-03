@@ -90,6 +90,10 @@ tokenizer.get_added_vocab()
 ## **Instruct Variants of Models**
 - Many models have a variant that has been trained for use in **chat applications**.
 - These are typically labeled with the word **"Instruct"** at the end.
+
+![]()
+
+
 - They are trained to expect **prompts with a structured format**, including:
   - **System prompts**
   - **User messages**
