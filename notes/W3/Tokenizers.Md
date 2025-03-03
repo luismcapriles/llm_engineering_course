@@ -165,7 +165,7 @@ You are a helpful assistant<|im_end|>
 <|im_start|>user
 Tell a light-hearted joke for a room of Data Scientists<|im_end|>
 <|im_start|>assistant
-
+```
 
 <details><summary><strong>More Details About Tokenizers</strong></summary>
 
