@@ -287,58 +287,58 @@ encoded = tokenizer(sequences, padding=True)
 ---
   <details><summary><strong>Consequences of Not Using Padding</strong></summary>
   
-      ### 1. Training Issues:
-      ```python
-      # Without padding - must process one sequence at a time
-      for sequence in sequences:
-          output = model(sequence)  # Inefficient
-      
-      # With padding - process multiple sequences at once
-      batched_output = model(padded_sequences)  # Much faster
-      ```
-      
-      ### 2. Computational Inefficiency:
-      ```python
-      # Example of processing cost
-      batch_size = 32
-      sequences_no_padding = [process_one_by_one(seq) for seq in sequences]  # 32 forward passes
-      sequences_with_padding = process_batch(padded_sequences)               # 1 forward pass
-      ```
-      
-      ### 3. Memory Problems:
-      ```python
-      # Without padding - must handle variable sizes
-      for sequence in sequences:
-          # Need separate memory allocation for each sequence
-          output_buffer = torch.zeros(sequence.size())  # Inefficient memory management
-      ```
-      
-      ### 4. Model Instability:
-      ```python
-      # Without padding or attention masks
-      # Model might attend to random values or garbage data
-      attention_scores = calculate_attention(sequences)  # Unreliable results
-      
-      # With padding and attention masks
-      attention_scores = calculate_attention(
-          padded_sequences, 
-          attention_mask=mask  # Zeros out attention to pad tokens
-      )
-      ```
-      
-      ### 5. Poor Performance:
-      ```python
-      # Example showing loss calculation
-      # Without padding - must handle each sequence separately
-      loss = 0
-      for seq in sequences:
-          output = model(seq)
-          loss += calculate_loss(output)  # Sequential processing
-      
-      # With padding - efficient parallel processing
-      outputs = model(padded_sequences)
-      loss = calculate_loss(outputs)  # One calculation
-      ```
+  ### 1. Training Issues:
+  ```python
+  # Without padding - must process one sequence at a time
+  for sequence in sequences:
+      output = model(sequence)  # Inefficient
+  
+  # With padding - process multiple sequences at once
+  batched_output = model(padded_sequences)  # Much faster
+  ```
+  
+  ### 2. Computational Inefficiency:
+  ```python
+  # Example of processing cost
+  batch_size = 32
+  sequences_no_padding = [process_one_by_one(seq) for seq in sequences]  # 32 forward passes
+  sequences_with_padding = process_batch(padded_sequences)               # 1 forward pass
+  ```
+  
+  ### 3. Memory Problems:
+  ```python
+  # Without padding - must handle variable sizes
+  for sequence in sequences:
+      # Need separate memory allocation for each sequence
+      output_buffer = torch.zeros(sequence.size())  # Inefficient memory management
+  ```
+  
+  ### 4. Model Instability:
+  ```python
+  # Without padding or attention masks
+  # Model might attend to random values or garbage data
+  attention_scores = calculate_attention(sequences)  # Unreliable results
+  
+  # With padding and attention masks
+  attention_scores = calculate_attention(
+      padded_sequences, 
+      attention_mask=mask  # Zeros out attention to pad tokens
+  )
+  ```
+  
+  ### 5. Poor Performance:
+  ```python
+  # Example showing loss calculation
+  # Without padding - must handle each sequence separately
+  loss = 0
+  for seq in sequences:
+      output = model(seq)
+      loss += calculate_loss(output)  # Sequential processing
+  
+  # With padding - efficient parallel processing
+  outputs = model(padded_sequences)
+  loss = calculate_loss(outputs)  # One calculation
+  ```
   </details>
 
 
