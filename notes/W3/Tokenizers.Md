@@ -478,7 +478,7 @@ In modern deep learning frameworks, padding is not just a convenience - it's a *
 
 </details>
 
-For more information in Tokenizer visit: https://huggingface.co/docs/transformers/main_classes/tokenizer
+For more information about Tokenizer visit: https://huggingface.co/docs/transformers/main_classes/tokenizer
 
 
 
