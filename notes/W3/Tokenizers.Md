@@ -2,7 +2,7 @@
 
 On the low level of the **Hugging Face (HF) API**, we have **Tokenizers** and **Models**:
 
-- A **Tokenizer** is the method used by a model to encode and decode text/code into [Tokens](./notes/W2/Tokens.Md).
+- A **Tokenizer** is the method used by a model to encode and decode text/code into [Tokens](.main/notes/W2/Tokens.Md).
 - This tokenization works as a **mapping mechanism**, where each token represents approximately **4 letters**.
 - Each **model** has its **own Tokenizer**.
 - **AutoTokenizer** is a **Transformers library from HF** that **automatically selects the appropriate tokenizer** based on the model name.
