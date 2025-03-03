@@ -171,6 +171,9 @@ Tell a light-hearted joke for a room of Data Scientists<|im_end|>
 
 # More Details About Tokenizers
 ### Padding Token:
+
+A Padding Token (PAD token) is a special token used to ensure that all input sequences in a batch have the same length. This is crucial when training or using NLP models that require fixed-size inputs.
+
 ```python
 tokenizer = AutoTokenizer.from_pretrained(LLAMA) 
 tokenizer.pad_token = tokenizer.eos_token 
@@ -183,7 +186,7 @@ inputs = tokenizer.apply_chat_template(messages, return_tensors="pt").to("cuda")
 tokenizer.pad_token = tokenizer.eos_token
 ```
 
-  <details><summary><strong>What is **`eos_token`** ?</strong></summary>
+  <details><summary><strong>What is eos_token ?</strong></summary>
   # Setting EOS as PAD  
   
   ```python
