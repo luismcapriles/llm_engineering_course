@@ -285,7 +285,7 @@ encoded = tokenizer(sequences, padding=True)
 ```
 
 ---
-  <details2><summary><strong>Consequences of Not Using Padding</strong></summary>
+  <details><summary><strong>Consequences of Not Using Padding</strong></summary>
   
       ### 1. Training Issues:
       ```python
@@ -339,7 +339,7 @@ encoded = tokenizer(sequences, padding=True)
       outputs = model(padded_sequences)
       loss = calculate_loss(outputs)  # One calculation
       ```
-  </details2>
+  </details>
 
 
 # **Real-world impacts:**
