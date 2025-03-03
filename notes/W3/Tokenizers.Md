@@ -108,6 +108,8 @@ There is a utility method **`apply_chat_template`** that converts messages from 
 
 # Comparing Different Model Tokenizers
 
+We can check the Model Tokenizer structute by printing the **`apply_chat_template`** passing the message, **`tokenize=False`** as we don’t want to show all tokens, the **`add_generation_prompt=True`** tells the template to add special tokens that indicate the start of a bot response instead of doing something unexpected.
+
 ```python
 messages = [
     {"role": "system", "content": "You are a helpful assistant"},
@@ -116,8 +118,6 @@ messages = [
 ```
 
 ## Llama
-
-Apply the chat template to the typical message structure. `tokenize=False` as we don’t want to show all tokens.
 
 ```python
 Llama_tokenizer = AutoTokenizer.from_pretrained('meta-llama/Meta-Llama-3.1-8B-Instruct', trust_remote_code=True)
