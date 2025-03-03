@@ -201,7 +201,158 @@ seq1: [Hello] [world] [PAD]
 seq2: [Hi] [there] [everyone!]
 ```
 
-**NOTE:** Different models handle padding differently.
+### Different models handle padding differently:
+
+# For example:
+# BERT:
+```python
+from transformers import BertTokenizer
+
+tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
+# BERT has a default pad_token = '[PAD]'
+print(tokenizer.pad_token) # outputs: '[PAD]'
+```
+
+# GPT-2:
+```python
+from transformers import GPT2Tokenizer
+
+tokenizer = GPT2Tokenizer.from_pretrained('gpt2') # GPT-2 doesn't have a default pad_token
+# Common solution:
+tokenizer.pad_token = tokenizer.eos_token # Uses </s> as pad token
+```
+
+---
+
+## When working with different models, you should:
+
+1. **Check if the model has a default pad token:**
+```python
+if tokenizer.pad_token is None:
+    # Need to set a pad token
+    tokenizer.pad_token = tokenizer.eos_token # Common approach
+```
+
+2. **Be aware of padding side:**
+```python
+# For encoder-decoder models (like T5), usually pad on the left
+encoded = tokenizer.batch_encode_plus(
+    ["short text", "longer example text"],
+    padding=True, truncation=True,
+    padding_side='left' # or 'right'
+)
+```
+
+3. **Consider attention masks:**
+```python
+# Attention mask will be 0 for pad tokens and 1 for regular tokens
+encoded = tokenizer(["Hello", "Hi there"], padding=True, return_attention_mask=True)
+
+# attention_mask might look like:
+# [[1, 1, 0], # "Hello" + pad
+#  [1, 1, 1]] # "Hi there"
+```
+
+---
+
+# **Padding tokens are crucial and what happens if you don't use them:**
+
+## **Why Padding is Important:**
+
+### 1. Batch Processing
+```python
+# Without padding - this won't work:
+sequences = [
+    [1, 2],           # length 2
+    [1, 2, 3, 4],     # length 4
+    [1, 2, 3]         # length 3
+]
+# PyTorch/TensorFlow expect rectangular tensors
+# ERROR: Cannot create tensor with irregular shape
+```
+
+### 2. Memory Efficiency
+```python
+# Bad approach - wasteful memory usage
+max_length = 512
+# Every sequence padded to maximum possible length
+# Even a 3-token sequence uses 512 tokens of memory
+
+# Good approach - efficient padding
+sequences = ["short", "longer text", "medium"]
+encoded = tokenizer(sequences, padding=True)
+# Only pads to length of longest sequence in batch
+```
+
+---
+<details><summary><strong>Consequences of Not Using Padding</strong></summary>
+
+### 1. Training Issues:
+```python
+# Without padding - must process one sequence at a time
+for sequence in sequences:
+    output = model(sequence)  # Inefficient
+
+# With padding - process multiple sequences at once
+batched_output = model(padded_sequences)  # Much faster
+```
+
+### 2. Computational Inefficiency:
+```python
+# Example of processing cost
+batch_size = 32
+sequences_no_padding = [process_one_by_one(seq) for seq in sequences]  # 32 forward passes
+sequences_with_padding = process_batch(padded_sequences)               # 1 forward pass
+```
+
+### 3. Memory Problems:
+```python
+# Without padding - must handle variable sizes
+for sequence in sequences:
+    # Need separate memory allocation for each sequence
+    output_buffer = torch.zeros(sequence.size())  # Inefficient memory management
+```
+
+### 4. Model Instability:
+```python
+# Without padding or attention masks
+# Model might attend to random values or garbage data
+attention_scores = calculate_attention(sequences)  # Unreliable results
+
+# With padding and attention masks
+attention_scores = calculate_attention(
+    padded_sequences, 
+    attention_mask=mask  # Zeros out attention to pad tokens
+)
+```
+
+### 5. Poor Performance:
+```python
+# Example showing loss calculation
+# Without padding - must handle each sequence separately
+loss = 0
+for seq in sequences:
+    output = model(seq)
+    loss += calculate_loss(output)  # Sequential processing
+
+# With padding - efficient parallel processing
+outputs = model(padded_sequences)
+loss = calculate_loss(outputs)  # One calculation
+```
+</details>
+---
+
+# **Real-world impacts:**
+- Training time could increase by **2-10x** without proper padding.
+- Memory usage becomes **unpredictable and inefficient**.
+- Model convergence might be **slower or less stable**.
+- Batch processing becomes **impossible or highly inefficient**.
+- Risk of **introducing bugs** in attention mechanisms.
+
+In modern deep learning frameworks, padding is not just a convenience - it's a **fundamental requirement** for efficient and stable model training and inference. Without it, you'd face significant performance penalties and potential quality issues in your model's outputs.
+
+
+
 </details>
 
 For more information in Tokenizer visit: https://huggingface.co/docs/transformers/main_classes/tokenizer
