@@ -183,6 +183,126 @@ inputs = tokenizer.apply_chat_template(messages, return_tensors="pt").to("cuda")
 tokenizer.pad_token = tokenizer.eos_token
 ```
 
+  <details><summary><strong>What is eos.token</strong></summary>
+  # Setting EOS as PAD  
+  
+  ```python
+  # Some models (like LLaMA) don't have pad_token  
+  # Common practice:
+  if tokenizer.pad_token is None: 
+      tokenizer.pad_token = tokenizer.eos_token  # EOS token serves double duty as padding
+  ```
+  
+  ---
+  
+  ## Understanding `tokenizer.eos_token`  
+  
+  The **End of Sequence (EOS) token** is a special token that signals the end of a text sequence. It's like a **"full stop"** or **"period"** that tells the model, *"this is where the text ends."*  
+  
+  ### 1. Basic Usage  
+  
+  Different models might use different EOS tokens. Here's how you can retrieve the EOS token for various models:  
+  
+  ```python
+  from transformers import AutoTokenizer 
+  
+  # GPT-2 EOS token  
+  gpt2_tokenizer = AutoTokenizer.from_pretrained('gpt2')  
+  print(gpt2_tokenizer.eos_token)  # '<|endoftext|>'  
+  
+  # T5 EOS token  
+  t5_tokenizer = AutoTokenizer.from_pretrained('t5-base')  
+  print(t5_tokenizer.eos_token)  # '</s>'
+  ```
+  
+  ---
+  
+  ### 2. Why EOS is Important  
+  
+  Without an EOS token, the model **doesn't know when to stop** generating text.  
+  
+  ```python
+  # Without EOS token  
+  text = "How are you"  
+  # Model doesn't know when to stop generating  
+  
+  # With EOS token  
+  text = "How are you" + tokenizer.eos_token  
+  # Model knows exactly where to stop  
+  ```
+  
+  ---
+  
+  ### 3. Common Use Cases  
+  
+  #### **Text Generation**  
+  
+  When generating text, the EOS token helps the model determine when to stop.  
+  
+  ```python
+  def generate_with_eos(model, tokenizer, prompt):  
+      # Add EOS token to training data  
+      input_ids = tokenizer(prompt + tokenizer.eos_token, return_tensors='pt').input_ids  
+      
+      # Model learns to generate text until EOS  
+      generated = model.generate(
+          input_ids, 
+          max_length=100, 
+          pad_token_id=tokenizer.eos_token_id  # Stop when EOS is generated  
+      )  
+  
+      return tokenizer.decode(generated[0])
+  ```
+  
+  #### **Sequence Classification**  
+  
+  For tasks like **sentiment analysis**, the EOS token helps define the **end of meaningful content**.  
+  
+  ```python
+  text = "This movie is great" + tokenizer.eos_token  
+  # EOS helps the model understand where the actual content ends  
+  ```
+  
+  ---
+  
+  ### 4. Handling Multiple Sequences  
+  
+  When working with multiple text sequences, EOS tokens help **clearly separate** them.  
+  
+  ```python
+  # Handling multiple sequences  
+  sequences = [
+      "First sequence" + tokenizer.eos_token,  
+      "Second sequence" + tokenizer.eos_token  
+  ]
+  
+  # During tokenization:  
+  encoded = tokenizer(
+      sequences, 
+      padding=True,
+      truncation=True
+  )  
+  # EOS tokens ensure proper separation  
+  ```
+  
+  ---
+  
+  ### 5. Common Gotchas and Solutions  
+  
+  #### **Problem:** The model keeps generating text indefinitely.  
+  
+  ```python
+  output = "This is a never-ending sequence..."  
+  ```
+  
+  #### **Solution:** Always add an EOS token to mark the end.  
+  
+  ```python
+  text = "This is complete" + tokenizer.eos_token  
+  # The model now knows when to stop  
+  ```
+  </details>
+
 The `.pad_token` is used to make all sequences in a batch the same length. For example:
 
 ## Example:
