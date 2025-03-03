@@ -104,3 +104,64 @@ There is a utility method **`apply_chat_template`** that converts messages from 
 
 > **Note:**  
 > Some models expect **text**, while others expect **code**. The message structure may differ accordingly.
+
+
+# Comparing Different Model Tokenizers
+
+```python
+messages = [
+    {"role": "system", "content": "You are a helpful assistant"},
+    {"role": "user", "content": "Tell a light-hearted joke for a room of Data Scientists"}
+]
+```
+
+## Llama
+
+Apply the chat template to the typical message structure. `tokenize=False` as we don’t want to show all tokens.
+
+```python
+Llama_tokenizer = AutoTokenizer.from_pretrained('meta-llama/Meta-Llama-3.1-8B-Instruct', trust_remote_code=True)
+print(tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True))
+```
+
+**Output:**
+```
+<|begin_of_text|><|start_header_id|>system<|end_header_id|>
+Cutting Knowledge Date: December 2023
+Today Date: 26 Jul 2024
+You are a helpful assistant<|eot_id|><|start_header_id|>user<|end_header_id|>
+Tell a light-hearted joke for a room of Data Scientists<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+```
+
+---
+
+## Phi-3
+
+```python
+print(phi3_tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True))
+```
+
+**Output:**
+```
+<|system|>
+You are a helpful assistant<|end|>
+<|user|>
+Tell a light-hearted joke for a room of Data Scientists<|end|>
+<|assistant|>
+```
+
+---
+
+## Qwen2
+
+```python
+print(qwen2_tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True))
+```
+
+**Output:**
+```
+<|im_start|>system
+You are a helpful assistant<|im_end|>
+<|im_start|>user
+Tell a light-hearted joke for a room of Data Scientists<|im_end|>
+<|im_start|>assistant
