@@ -24,7 +24,7 @@ Welcome to our comprehensive 8-week journey through the cutting-edge world of Ge
 - 📊 Introduction to Google Colab ($)
 - 🤗 Discover the world of Open-Source models using HuggingFace
    - HF High Level: Pipelenes (🤖Transformers and 🧠Diffusers)
-   - HF High Level: 🧩Tokenizers and 💬 Models  
+   - HF Low Level: 🧩Tokenizers and 💬 Models  
 - 🎯 Tackle 10 common Gen AI use cases, from translation to image generation [Pipelines](./notes/W3_HW_Pipelines.ipynb)
 - 📝 Build a product to generate meeting minutes and action items from recordings
 - 📝 Check W3 notes: [W3](./notes/W3)
