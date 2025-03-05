@@ -13,6 +13,7 @@ The base classes of Model libraries:
 - `PreTrainedModel`  
 - `TFPreTrainedModel`  
 - `FlaxPreTrainedModel`  
+>[HF PreTrainedModel](https://huggingface.co/docs/transformers/v4.49.0/en/main_classes/model#transformers.PreTrainedModel)
 
 These classes implement common methods for loading/saving a model.  
 
@@ -29,7 +30,7 @@ In this course, we looked at `PreTrainedModel`.
 
 ---
 
-## Where Tokenizers Fit  
+## Where Tokenizers Fit 🧩  
 
 Tokenizers are a crucial preprocessing step before working with models. The **Model API** expects numerical input (tensors), but text needs to be converted into tokens first.
 
