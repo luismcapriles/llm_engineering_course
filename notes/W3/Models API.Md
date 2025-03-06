@@ -149,8 +149,19 @@ Output:
 6.06089267 GB allocated
 6.15933542 GB reserved
 ```
+# Conclusion PyTorch Downcasting
 
-![Downcasting](https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W3/img_downcasting.png)
+# Advantages:
+- **Reduced memory footprint**
+  - More efficient use of GPU memory.
+  - Enables the training of larger models.
+  - Enables larger batch sizes.
+- **Increased compute and speed**
+  - Computation using low precision (fp16, bf16) can be faster than fp32 since it requires less memory.
+  - Depends on the hardware (e.g., Google TPU, NVIDIA A100).
+
+# Disadvantages:
+- **Less precise**: We are using less memory, hence the computation is less precise.
 
 ---
 
