@@ -54,7 +54,8 @@ from transformers import AutoTokenizer
 tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
 tokens = tokenizer("Hello, how are you?", return_tensors="pt")
 ```
-
+>Note:
+>return_tensors="pt" ->> pt refers to pytorch this way we get pytorch tensor at the output 
 ---
 
 ## Where Quantization & `bitsandbytes` Fit 🚀 
