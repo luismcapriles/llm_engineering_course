@@ -57,7 +57,7 @@ tokens = tokenizer("Hello, how are you?", return_tensors="pt")
 
 ---
 
-## Where Quantization & `bitsandbytes` Fit  
+## Where Quantization & `bitsandbytes` Fit 🚀 
 
 Quantization and `bitsandbytes` help with model optimization for efficient inference.  
 
