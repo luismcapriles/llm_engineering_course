@@ -66,10 +66,15 @@ Quantization and `bitsandbytes` help with model optimization for efficient infer
 - Helps deploy models on lower-resource environments (e.g., consumer GPUs, edge devices).  
 - Hugging Face supports quantization via libraries like `torch.quantization` and `bitsandbytes`.  
 
+>Note:
+>Visit here for [Quantization](https://huggingface.co/docs/transformers/quantization/overview)
+
 ### `bitsandbytes`  
 - A specialized library for **4-bit** and **8-bit** quantization using `LLM.int8()` and `LLM.int4()` techniques.  
 - Works with transformers to **reduce memory footprint** while keeping model accuracy high.  
 - Used when loading models like:  
+>Note:
+>Visit here for [bitsandbytes](https://huggingface.co/docs/transformers/quantization/bitsandbytes)
 
 ```python
 from transformers import AutoModelForCausalLM
