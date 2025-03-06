@@ -150,7 +150,7 @@ Output:
 6.15933542 GB reserved
 ```
 
-!(https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W3/img_downcasting.png)
+![Downcasting](https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W3/img_downcasting.png)
 
 ---
 
