@@ -123,7 +123,7 @@ torch.cuda.empty_cache()
 torch.cuda.ipc_collect()
 ```
 >I had to restart the kernel, so the resources get free. 
-![Cuda Free]()
+![Cuda Free](https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W3/cuda_free.png)
 
 4. Quantization in action
 Quantization Config - this allows us to load the model into memory and use less memory
@@ -149,6 +149,9 @@ Output:
 6.06089267 GB allocated
 6.15933542 GB reserved
 ```
+
+
+
 ---
 
 ## **Order of Steps in the Workflow**
