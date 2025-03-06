@@ -87,7 +87,9 @@ model = AutoModelForCausalLM.from_pretrained(
 )
 ```
 ## **Example of Quantization from FP36 to BF16**
-# 1. Check current memory allocated
+
+1. Check current memory allocated
+
 ```python
 !pip install -q requests torch bitsandbytes transformers sentencepiece accelerate
 from transformers import AutoTokenizer, AutoModelForCausalLM, TextStreamer, BitsAndBytesConfig
@@ -102,7 +104,7 @@ Output:
 0.0 GB allocated
 0.0 GB reserved
 ```
-# 2.Load the model and check the memory usage
+2. Load the model and check the memory usage
 By default the model without Quantization is loaded with its Weight at full-precision at FP32 (32 floating points) that takes a lot of memory
 ```python
 #load the model without quantization and forced to GPU
@@ -113,7 +115,7 @@ Output:
 32.12104550 GB allocated
 32.12207717 GB reserved
 ```
-# 3. Free the memory space
+3. Free the memory space
 >Note:
 >once the model is loaded, and I tried to clean the cache.  CUDA memory *is not released* with: 
 ```python
@@ -123,7 +125,7 @@ torch.cuda.ipc_collect()
 >I had to restart the kernel, so the resources get free. 
 ![Cuda Free]()
 
-#4. Quantization in action
+4. Quantization in action
 Quantization Config - this allows us to load the model into memory and use less memory
 There are different Quantization Techniques
 Transformers supports many quantization methods, each with their pros and cons, so you can pick the best one for your specific use case.
