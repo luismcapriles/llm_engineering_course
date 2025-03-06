@@ -86,7 +86,67 @@ model = AutoModelForCausalLM.from_pretrained(
     device_map="auto"
 )
 ```
+## **Example of Quantization from FP36 to BF16**
+# 1. Check current memory allocated
+```python
+!pip install -q requests torch bitsandbytes transformers sentencepiece accelerate
+from transformers import AutoTokenizer, AutoModelForCausalLM, TextStreamer, BitsAndBytesConfig
+import torch
 
+#to know memory allocation before loading the model to memory
+print(torch.cuda.memory_allocated()/1e9, "GB allocated")
+print(torch.cuda.memory_reserved()/1e9, "GB reserved")
+```
+Output:
+```python
+0.0 GB allocated
+0.0 GB reserved
+```
+# 2.Load the model and check the memory usage
+By default the model without Quantization is loaded with its Weight at full-precision at FP32 (32 floating points) that takes a lot of memory
+```python
+#load the model without quantization and forced to GPU
+model = AutoModelForCausalLM.from_pretrained(LLAMA, device_map={"":0}).to("cuda")
+```
+Output:
+```python
+32.12104550 GB allocated
+32.12207717 GB reserved
+```
+# 3. Free the memory space
+>Note:
+>once the model is loaded, and I tried to clean the cache.  CUDA memory *is not released* with: 
+```python
+torch.cuda.empty_cache()
+torch.cuda.ipc_collect()
+```
+>I had to restart the kernel, so the resources get free. 
+![Cuda Free]()
+
+#4. Quantization in action
+Quantization Config - this allows us to load the model into memory and use less memory
+There are different Quantization Techniques
+Transformers supports many quantization methods, each with their pros and cons, so you can pick the best one for your specific use case.
+During the course we used **`bitsandbytes`** ->> This uses [bitsandbytesConfig](https://huggingface.co/docs/transformers/main/en/main_classes/quantization#quantization)
+
+```python
+quant_config = BitsAndBytesConfig(
+    bnb_4bit_compute_dtype=torch.bfloat16, #here we are downcasting from FP32 to BF16
+)
+```
+```python
+#Verifying the model loaded into memory with quantization BF16
+model = AutoModelForCausalLM.from_pretrained(LLAMA, device_map={"":0},quantization_config=quant_config).to("cuda")
+
+#to know memory allocation after loading the model with quantization BF16
+print(torch.cuda.memory_allocated()/1e9, "GB allocated")
+print(torch.cuda.memory_reserved()/1e9, "GB reserved")
+```
+Output:
+```python
+6.06089267 GB allocated
+6.15933542 GB reserved
+```
 ---
 
 ## **Order of Steps in the Workflow**
