@@ -224,10 +224,15 @@ tokens = tokenizer(text, return_tensors="pt")  # Output: token IDs ready for mod
   ```python
   from transformers import AutoModelForCausalLM
 
+  #quantization methods depends on the every scenario
+  #quant_config_bf16 = BitsAndBytesConfig(bnb_4bit_compute_dtype=torch.bfloat16)
+  #quant_config_8bits = BitsAndBytesConfig(load_in_8bit=True)
+  #quant_config_4bits = BitsAndBytesConfig(load_in_4bit=True)
+
   model = AutoModelForCausalLM.from_pretrained(
       "meta-llama/Llama-2-7b-chat-hf",
-      load_in_4bit=True,  # Enable quantization
-      device_map="auto"   # Auto-assign to available GPU
+      quantization_config=quant_config_4bits,  # Enable 4bits quantization
+      device_map={"":0}   # To force it to use GPU
   )
   ```
   🔹 *Here, quantization reduces memory usage, making large models more efficient.*
