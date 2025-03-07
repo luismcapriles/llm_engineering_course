@@ -69,7 +69,9 @@ Quantization and `bitsandbytes` help with model optimization for efficient infer
 
 >Note:
 >Visit here for [Quantization](https://huggingface.co/docs/transformers/quantization/overview)
+
 >Quick course from Deeplearning.ai on [Quantization](https://www.deeplearning.ai/short-courses/quantization-fundamentals-with-hugging-face/)
+
 ### `bitsandbytes`  
 - A specialized library for **4-bit** and **8-bit** quantization using `LLM.int8()` and `LLM.int4()` techniques.  
 - Works with transformers to **reduce memory footprint** while keeping model accuracy high.  
