@@ -13,7 +13,7 @@ This project provides an application that extracts audio from YouTube videos, tr
 ## Installation  
 1. **Clone the repository**  
    ```bash
-   git clone https://github.com/your-repo/youtube-summarizer.git
+   git clone https://github.com/luismcapriles/llm_engineering_course/blob/main/projects/YTube_Summarizer/ytube_summarizer_with_groq.ipynb
    cd youtube-summarizer
    ```
 2. **Install dependencies**  
