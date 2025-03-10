@@ -40,12 +40,14 @@ And a new concern, not yet proven
 
 | Why is it useful? 🔍 | Link 🔗 |
 |----------------------|--------|
-| **General LLM leaderboard** 📊 | [Hugging Face Open LLM Leaderboard](https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard#/) |
-| **Coding benchmarks** 💻 | [BigCode Models Leaderboard](https://huggingface.co/spaces/bigcode/bigcode-models-leaderboard) |
-| **Performance benchmarks** ⚡ | [LLM Performance Leaderboard](https://huggingface.co/spaces/optimum/llm-perf-leaderboard) |
+| **General LLM leaderboard** 🤗 | [Hugging Face Open LLM Leaderboard](https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard#/) |
+| **Coding benchmarks** 🤗 | [BigCode Models Leaderboard](https://huggingface.co/spaces/bigcode/bigcode-models-leaderboard) |
+| **Performance benchmarks** 🤗 | [LLM Performance Leaderboard](https://huggingface.co/spaces/optimum/llm-perf-leaderboard) |
+| **All Huggingface Leaderboard in Spaces** 🤗 | [HF LLM Leaderboard](https://huggingface.co/spaces?search=leaderboard) |
 | **Model comparison & rankings** 🏆 | [Vellum AI LLM Leaderboard](https://www.vellum.ai/llm-leaderboard) |
 | **Industry benchmark evaluations** 📈 | [Scale AI Leaderboard](https://scale.com/leaderboard) |
 | **Software engineering benchmarks** 🛠️ | [SweBench](https://www.swebench.com/) |
+| **Chatbot Arena voted from users** 🏆 | [LLM Arena](https://https://lmarena.ai/?leaderboard/) |
 
 ---
 
@@ -70,6 +72,9 @@ Typically, **unofficial providers** are either smaller labs or individual resear
 ---
 
 ## Interesting Notes:
+[Chinchilla Law](https://www.analyticsvidhya.com/blog/2024/09/chinchilla-scaling-law/)
+
+
 Debates on an Apple paper stating that **LLMs have 0 evidence of human reasoning**. Instead, they rely on pattern recognition and memorization → next token prediction.  
 
 [Apple AGI Research Claims There's ZERO Evidence LLMs Can Reason (+Tesla Optimus Robot Scandal)](https://chatgpt.com/share/6712d71e-add0-8012-9457-aba26302b31f)  
