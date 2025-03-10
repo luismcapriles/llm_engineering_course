@@ -25,7 +25,7 @@ Welcome to our comprehensive 8-week journey through the cutting-edge world of Ge
 - 🤗 Discover the world of Open-Source models using HuggingFace
    - HF High Level: Pipelenes (🤖Transformers and 🧠Diffusers)
    - HF Low Level: 🧩Tokenizers and 💬 Models  
-- 🎯 Tackle 10 common Gen AI use cases, from translation to image generation [Pipelines](./notes/W3_HW_Pipelines.ipynb)
+- 🎯 Tackle 10 common Gen AI use cases, from translation to image generation [Pipelines](.notes/code_examples/W3_HW_Pipelines.ipynb)
 - 📝 Build a product to generate Ytube video summaries from an URL [Ytube Summarizer](https://github.com/luismcapriles/llm_engineering_course/tree/main/projects/YTube_Summarizer)
 - 📝 Check W3 notes: [W3](./notes/W3)
 
