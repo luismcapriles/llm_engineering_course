@@ -20,15 +20,15 @@ This project provides an application that extracts audio from YouTube videos, tr
    pip install -q requests torch bitsandbytes transformers accelerate gradio sentencepiece yt-dlp datasets[audio] pydub
    ```
 3. **Set up API keys**  
-   - Create a `.env` file and add:  
+   - Create a `.env` file and add: (recommended) 
      ```
      HF_TOKEN=your_huggingface_token
      GROQ_API_KEY=your_groq_api_key
      ```
-   - Or set them in your environment:  
+   - Or set them in the code:  
      ```bash
-     export HF_TOKEN=your_huggingface_token
-     export GROQ_API_KEY=your_groq_api_key
+     HF_TOKEN=your_huggingface_token
+     GROQ_API_KEY=your_groq_api_key
      ```
 
 ## Usage  
@@ -61,11 +61,7 @@ demo.launch(inbrowser=True)
 - **Slow inference** on CPUs—**GPU recommended** for local execution.  
 
 ## Future Improvements  
-🚀 Optimize chunk merging for better summaries  
-🚀 Improve processing speed with GPU acceleration  
-🚀 Add multi-language support for summaries  
+🚀 Optimize text chunk merging for longer video summaries 35+min  
+
 
 💡 **Contributions welcome!** Feel free to suggest improvements.  
-
----
-#AI #YouTubeSummarizer #Groq #HuggingFace #LLM #Whisper #Gradio
