@@ -32,14 +32,7 @@ This project provides an application that extracts audio from YouTube videos, tr
      ```
 
 ## Usage  
-Run the application with:  
-```bash
-python app.py
-```
-Or launch it in **Gradio** directly:  
-```python
-demo.launch(inbrowser=True)
-```
+Run the application with: jupyter lab an automatic Gradio GUI will open in browser  
 
 ## How It Works  
 1️⃣ **Extracts audio** from the provided YouTube URL using `yt-dlp`.  
