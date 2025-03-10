@@ -1,5 +1,16 @@
 # W4 Takeaway:
 
+## Evaluating Models 
+- Start with the basics:
+-- Numbers of Parameters
+-- Context Lenght
+-- Pricing
+
+- Then look at the results
+-- Benchmarks
+-- Leaderboards 
+-- Arenas
+
 There are multiple Benchmarks in the markets. Some more popular than others.  
 
 The relevance to one Benchmark over another relies on the Business Use Case Metrics.  
