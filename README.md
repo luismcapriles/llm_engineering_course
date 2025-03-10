@@ -26,7 +26,7 @@ Welcome to our comprehensive 8-week journey through the cutting-edge world of Ge
    - HF High Level: Pipelenes (🤖Transformers and 🧠Diffusers)
    - HF Low Level: 🧩Tokenizers and 💬 Models  
 - 🎯 Tackle 10 common Gen AI use cases, from translation to image generation [Pipelines](./notes/W3_HW_Pipelines.ipynb)
-- 📝 Build a product to generate meeting minutes and action items from recordings
+- 📝 Build a product to generate Ytube video summaries from an URL [Ytube Summarizer](https://github.com/luismcapriles/llm_engineering_course/tree/main/projects/YTube_Summarizer)
 - 📝 Check W3 notes: [W3](./notes/W3)
 
 ### Week 4: LLM Selection and Code Generation
