@@ -88,7 +88,7 @@ Typically, **unofficial providers** are either smaller labs or individual resear
 ---
 # 📈 Evaluate Gen AI Performance 
 
-<details><summary><strong>Note on Audio generation</strong></summary>
+<details><summary><strong>Model-Centric or Technical Metrics</strong></summary>
 # Loss (e.g. cross-entropy loss)
 
 Cross-entropy loss is a way of measuring how well a Generative AI (GenAI) model predicts probabilities for different possible outputs. It is commonly used when the model is generating text, images, or other structured outputs where multiple possible answers exist.
