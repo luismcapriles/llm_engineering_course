@@ -32,6 +32,7 @@ Welcome to our comprehensive 8-week journey through the cutting-edge world of Ge
 ### Week 4: LLM Selection and Code Generation
 - 🧩 Understand the differences between LLMs and how to select the best one for your business tasks
 - 💻 Use LLMs to generate code and build a product that translates code from Python to C++, achieving performance improvements of over 60,000 times
+-  Check W4 notes: [W4](./notes/W4)
 
 ### Week 5: Retrieval-Augmented Generation (RAG)
 - 📚 Master RAG to improve the accuracy of your solutions
