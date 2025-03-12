@@ -86,6 +86,52 @@ Typically, **unofficial providers** are either smaller labs or individual resear
 - Use **non-official models** as reference implementations for fine-tuning insights.  
 
 ---
+# 📈 Evaluate Gen AI Performance 
+
+<details><summary><strong>Note on Audio generation</strong></summary>
+# Loss (e.g. cross-entropy loss)
+
+Cross-entropy loss is a way of measuring how well a Generative AI (GenAI) model predicts probabilities for different possible outputs. It is commonly used when the model is generating text, images, or other structured outputs where multiple possible answers exist.
+
+## Simple Analogy
+Imagine you're playing a game where you have to guess the next word in a sentence. Your AI model predicts probabilities for several possible words. The closer the model’s predicted probability is to the correct answer, the better it performs.
+
+## Mathematical Idea
+Cross-entropy loss compares the predicted probabilities with the actual (ground truth) values. It gives a low loss when the model assigns a high probability to the correct answer and a high loss when the model assigns a low probability to the correct answer.
+
+\[
+\text{Loss} = - \sum_{i} y_i \log(\hat{y}_i)
+\]
+
+Where:
+
+- \( y_i \) is the actual (true) label (1 for the correct class, 0 for others).
+- \( \hat{y}_i \) is the predicted probability of class \( i \).
+- The logarithm makes wrong predictions heavily penalized.
+
+## In GenAI Context
+For a text generation model, suppose we ask the model to complete:
+
+**"The capital of France is ____."**  
+If the model assigns:
+
+- **"Paris"** → 80% probability  
+- **"London"** → 15% probability  
+- **"Berlin"** → 5% probability  
+
+Since **"Paris"** is the correct answer, the cross-entropy loss would be **low** because the model assigned a high probability to the right answer. If it had predicted **"Berlin"** with a high probability instead, the loss would be **high**, signaling poor performance.
+
+## Why It Matters?
+Cross-entropy loss helps fine-tune the model by adjusting its weights so that it assigns higher probabilities to correct outputs over time, making the AI more accurate.
+
+---
+
+
+</details>
+
+
+
+---
 
 ## Interesting Notes:
 [Chinchilla Law](https://www.analyticsvidhya.com/blog/2024/09/chinchilla-scaling-law/)
