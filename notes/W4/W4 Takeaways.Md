@@ -88,7 +88,7 @@ Typically, **unofficial providers** are either smaller labs or individual resear
 ---
 # 📈 Evaluate Gen AI Performance 
 
-## 🧠 Model-centric or Technical Metrics
+## 🧠 Model-centric or Technical Metrics (**Easiest to optimize with**)
 
 <details><summary><strong>Loss (eg cross-entropy loss)</strong></summary>
 # Loss (e.g. cross-entropy loss)
@@ -171,16 +171,16 @@ Perplexity is commonly used to evaluate **language models** like GPT, LLaMA, or 
 - Precision, Recall, F1
 - AUC-ROC
 
-**Easiest to optimize with**
 
-## 📊 Business-centric or Outcome Metrics
+
+## 📊 Business-centric or Outcome Metrics (**Most tangible impact**)
 - KPIs tied to business objectives
 - ROI
 - Improvements in time, cost or resources
 - Customer satisfaction
 - Benchmark comparisons
 
-**Most tangible impact**
+
 
 ---
 
