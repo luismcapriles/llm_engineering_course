@@ -90,9 +90,8 @@ Typically, **unofficial providers** are either smaller labs or individual resear
 
 ## 🧠 Model-centric or Technical Metrics
 
-- <details><summary><strong>Loss (eg cross-entropy loss)</strong></summary>
+<details><summary><strong>Loss (eg cross-entropy loss)</strong></summary>
 # Loss (e.g. cross-entropy loss)
-
 Cross-entropy loss is a way of measuring how well a Generative AI (GenAI) model predicts probabilities for different possible outputs. It is commonly used when the model is generating text, images, or other structured outputs where multiple possible answers exist.
 
 ## Simple Analogy
@@ -128,7 +127,7 @@ Cross-entropy loss helps fine-tune the model by adjusting its weights so that it
 
 </details>
 
-- <details><summary><strong>Perplexity</strong></summary>
+<details><summary><strong>Perplexity</strong></summary>
 # Perplexity (PPL) Explained Simply
 
 Perplexity is a way to measure how **confused** a language model is when making predictions.  
