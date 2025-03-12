@@ -62,6 +62,11 @@ And a new concern, not yet proven
 
 ---
 
+- [7 Commons Benchmarks](./notes/W4/img_7_common_benchmark.png)
+- [3 Specific Benchmark](./notes/W4/img_3_specific_benchmark.png)
+- [6 Hard  Next Level Benchmark](./notes/W4/img_6_hard_next_level_benchmark.png)
+
+---
 # 🏢 Official Models vs 🏗️ Non-Official Providers  
 
 Typically, **unofficial providers** are either smaller labs or individual researchers who fine-tune models to squeeze more performance out of them—either using their own data or by generating data from other models.  
