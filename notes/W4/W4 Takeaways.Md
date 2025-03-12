@@ -88,7 +88,9 @@ Typically, **unofficial providers** are either smaller labs or individual resear
 ---
 # 📈 Evaluate Gen AI Performance 
 
-<details><summary><strong>Model-Centric or Technical Metrics</strong></summary>
+## 🧠 Model-centric or Technical Metrics
+
+- <details><summary><strong>Loss (eg cross-entropy loss)</strong></summary>
 # Loss (e.g. cross-entropy loss)
 
 Cross-entropy loss is a way of measuring how well a Generative AI (GenAI) model predicts probabilities for different possible outputs. It is commonly used when the model is generating text, images, or other structured outputs where multiple possible answers exist.
@@ -124,12 +126,62 @@ Since **"Paris"** is the correct answer, the cross-entropy loss would be **low**
 ## Why It Matters?
 Cross-entropy loss helps fine-tune the model by adjusting its weights so that it assigns higher probabilities to correct outputs over time, making the AI more accurate.
 
----
+</details>
 
+- <details><summary><strong>Perplexity</strong></summary>
+# Perplexity (PPL) Explained Simply
+
+Perplexity is a way to measure how **confused** a language model is when making predictions.  
+
+A lower perplexity means the model is **more confident** and better at predicting the next word, while a higher perplexity means the model is struggling.
+
+## How Perplexity is Related to Cross-Entropy Loss
+
+Perplexity (\( PPL \)) is directly derived from **cross-entropy loss**:
+
+\[
+PPL = e^{\text{Cross-Entropy Loss}}
+\]
+
+Since cross-entropy measures how well the predicted probabilities match the true ones, exponentiating it converts that loss into an interpretable score: **how many choices the model is effectively juggling at each step.**
+
+## Intuitive Example
+
+Imagine you're playing a "guess the next word" game, and the model has to complete:
+
+**"The capital of France is ____."**
+
+- **Good model (low perplexity):** Assigns **high probability** to **"Paris"** → Confident prediction.  
+- **Bad model (high perplexity):** Assigns **similar probabilities** to **"Paris", "Berlin", and "London"** → More uncertain.  
+
+- **If PPL = 1**, the model is perfect (it always predicts correctly).  
+- **If PPL = 10**, the model is as uncertain as if it had 10 equally likely choices.  
+- **If PPL = 100**, the model is struggling a lot.  
+
+## Why Does Perplexity Matter in GenAI?
+
+Perplexity is commonly used to evaluate **language models** like GPT, LLaMA, or T5. It helps answer:
+
+- **How well does the model understand language?**  
+- **Is it improving during training?** (Lower PPL = better)  
+- **Which model version is better?** (Compare PPL scores)  
 
 </details>
 
+- Accuracy
+- Precision, Recall, F1
+- AUC-ROC
 
+**Easiest to optimize with**
+
+## 📊 Business-centric or Outcome Metrics
+- KPIs tied to business objectives
+- ROI
+- Improvements in time, cost or resources
+- Customer satisfaction
+- Benchmark comparisons
+
+**Most tangible impact**
 
 ---
 
