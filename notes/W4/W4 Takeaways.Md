@@ -62,9 +62,9 @@ And a new concern, not yet proven
 
 ---
 
-- [7 Commons Benchmarks](./notes/W4/img_7_common_benchmark.png)
-- [3 Specific Benchmark](./notes/W4/img_3_specific_benchmark.png)
-- [6 Hard  Next Level Benchmark](./notes/W4/img_6_hard_next_level_benchmark.png)
+- [7 Commons Benchmarks](https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W4/img_7_common_benchmark.png)
+- [3 Specific Benchmark](https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W4/img_3_specific_benchmark.png)
+- [6 Hard  Next Level Benchmark](https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W4/img_6_hard_next_level_benchmark.png)
 
 ---
 # 🏢 Official Models vs 🏗️ Non-Official Providers  
