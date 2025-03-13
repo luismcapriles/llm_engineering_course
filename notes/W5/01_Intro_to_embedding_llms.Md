@@ -12,14 +12,11 @@ We can interact with a model in two main ways:
 - **Training**: The process of providing a model with data so it adapts and improves at a task over time. This happens by updating its settings (parameters or weights).
 - **Inference**: Using a pre-trained model to generate new outputs.
 ---
-<details><summary><strong>Auto-Encoding vs. Auto-Regressive Models and How They Relate to Embeddings</strong></summary>
+
 # Auto-Encoding vs. Auto-Regressive Models and How They Relate to Embeddings  
 
-## 1. Auto-Encoding vs. Auto-Regressive Models  
 
----
-
-## 2. Auto-Encoding Models (e.g., BERT)  
+## 1. Auto-Encoding Models (e.g., BERT)  
 These models encode input into a dense representation (**embedding**) and try to reconstruct the original input.  
 
 ### 🔹 How They Work:  
@@ -37,7 +34,7 @@ These models encode input into a dense representation (**embedding**) and try to
 
 ---
 
-## 3. Auto-Regressive Models (e.g., GPT)  
+## 2. Auto-Regressive Models (e.g., GPT)  
 These models predict the **next word** based on **previous words**.  
 
 ### 🔹 How They Work:  
@@ -55,7 +52,7 @@ These models predict the **next word** based on **previous words**.
 
 ---
 
-## 4. How This Relates to Embeddings  
+## 3. How This Relates to Embeddings  
 Both models generate embeddings but in **different ways**:  
 
 ### 🔹 1. Auto-Encoding Models (**BERT**)  
@@ -77,16 +74,20 @@ Both models generate embeddings but in **different ways**:
 ### 📖 **Auto-Regressive (GPT) → Writing a Novel**  
 - You **start with the first sentence** and keep **adding words based on the previous ones**.  
 - You **never go back to edit**, only move forward.  
-</details>
+
+
+## 4. Summary table: Auto-Encoding vs. Auto-Regressive Models  
+
+| Feature | Auto-Encoding | Auto-Regressive |
+|---------|---------------|-----------------|
+| Goal | Compress and reconstruct input efficiently | Predict the next token/word in a sequence |
+| How It Works | Learns a compressed latent representation (embedding) | Generates text one token at a time based on past context |
+| Example Models | BERT, ALBERT, Variational Autoencoders (VAEs) | GPT, Transformer-XL, LLaMA |
+| Training Task | Masked Language Modeling (fill missing words) | Causal Language Modeling (predict the next word) |
+
 ---
-## Traditional LLMs vs. Embedding Models
-We have previously worked with **Traditional LLMs** or **Auto-regressive LLMs**, which predict a future token based on previous information (text, image, audio, etc.) These model select the next token based on the highest probability distribution. Once the next token is selected, the model can generate completely new output by repeating the process over and over again. 
 
-![0](https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W5/img_traditionals_llms.png)
-
-There is a variant in Transforming model called Embedding Models: focus on creating vector representations (embeddings) of text that capture semantic meaning
-
-### What Are Embedding Models?
+### So What Are Embeddings?
 **Embedding models** are a type of machine learning model designed to transform complex data—like words, images, or user preferences—into numerical representations called **embeddings**.
 
 ![Embeddings](https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W5/img_embeddings2.png)
