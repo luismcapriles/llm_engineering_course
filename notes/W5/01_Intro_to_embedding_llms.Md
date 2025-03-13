@@ -87,7 +87,7 @@ Both models generate embeddings but in **different ways**:
 
 ---
 
-### So What Are Embeddings?
+## So What is Vector Embedding?
 **Embedding models** are a type of machine learning model designed to transform complex data—like words, images, or user preferences—into numerical representations called **embeddings**.
 
 ![Embeddings](https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W5/img_embeddings2.png)
