@@ -22,7 +22,7 @@ There is a variant in Transforming model called Embedding Models: focus on creat
 ### What Are Embedding Models?
 **Embedding models** are a type of machine learning model designed to transform complex data—like words, images, or user preferences—into numerical representations called **embeddings**.
 
-!(https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W5/img_embeddings2.png)
+![Embeddings](https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W5/img_embeddings2.png)
 
 ### The process goes like this: 
 
