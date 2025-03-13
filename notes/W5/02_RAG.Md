@@ -26,7 +26,7 @@ RAG combines two key components:
 
 6.**Answer**: User get the LLM response. 
 
-(https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W5/img_RAG.png)
+!(https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W5/img_RAG.png)
 
 ## Benefits of RAG
 
