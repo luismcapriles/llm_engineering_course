@@ -84,3 +84,6 @@ After that, the hope is the **entire meaning** of the input is set into the **la
 
 ![9](https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W5/img_final_output.png)
 
+
+### More detailed info here
+- [3Blue1Brown](https://www.youtube.com/watch?v=wjZofJX0v4M)
