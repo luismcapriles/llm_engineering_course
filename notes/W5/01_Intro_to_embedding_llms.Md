@@ -87,9 +87,8 @@ Both models generate embeddings but in **different ways**:
 
 >NOTE:
 Auto-regressive are models that are designed to be really good a predicting the next token in a sequence. The output is a vector that represents the probabilities of the next token. At training time, the loss is calculated based on it's accuracy in predicting the next token. So with an input like, "We are living in a material", the auto-regressive model might contain within its layers a representation of the context, but the output from the model will be the probabilities of the next token, hopefully with "world" getting a high probability!
->
 
->
+
 Auto-encoding are trained using various techniques so that the output is a vector that reflects the entire meaning of the input sequence, not the probability of the next token.
 >
 
