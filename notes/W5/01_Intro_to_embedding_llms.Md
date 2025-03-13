@@ -125,7 +125,93 @@ After that, the hope is the **entire meaning** of the input is set into the **la
 - **Embeddings** are like a **"meaning map"** where related words are placed near each other.
 </details>
 
+---
+<details><summary><strong>Personal question on Embeddings</strong></summary>
+# 1. How Is the High-Dimensional Vector Defined for a Word?  
 
+The vector (embedding) for a word is **not manually assigned**—it is **learned** during training using mathematical optimization. The number of dimensions (e.g., 100, 300, 768, 1024) is chosen based on the model design.  
+
+### How is the embedding learned?  
+1. **Training on Large Text Data**: The model processes millions/billions of words and learns patterns in how words appear together.  
+2. **Adjusting Embeddings Based on Context**: The model starts with random vectors and updates them using techniques like **gradient descent** and **backpropagation** to make similar words closer in vector space.  
+3. **Result**: Each word gets a unique vector that captures meaning based on its **context and relationships** with other words.  
+
+---
+
+# 2. Does a Dictionary of Predefined Vectors Exist for Each Word?  
+
+It depends on the model type:  
+
+## (A) Static Embeddings (Predefined Vectors)  
+- In older models like **Word2Vec, GloVe, or FastText**, a **fixed dictionary** of word embeddings exists.  
+- **Example**: Word2Vec might have a lookup table like:  
+  - `"king"`  → `[0.5, 0.3, -0.7, ...]` *(fixed 300D vector)*  
+  - `"queen"` → `[0.52, 0.28, -0.69, ...]`  
+- Every time you see `"king"`, it has the **same vector**, no matter the context.  
+
+## (B) Dynamic Contextual Embeddings  
+- In **modern models** (*BERT, GPT, T5, etc.*), embeddings are **dynamic**.  
+- The **same word** can have **different vectors** depending on the sentence.  
+- **Example with BERT**:  
+  - `"I will book a flight."` → `"book"` embedding → `[1.2, -0.3, 0.8, ...]`  
+  - `"I read a book."` → `"book"` embedding → `[0.5, 1.1, -0.4, ...]`  
+- The model **computes embeddings on the fly** instead of using a static lookup table.  
+
+---
+
+# 3. Can the Values of an Embedding Vector Be Dynamic?  
+
+Yes! In **contextual embeddings** (*e.g., BERT, GPT, T5, etc.*), the values change dynamically based on:  
+
+1. **Sentence Context** → The same word in different sentences has different vectors.  
+2. **Fine-Tuning** → If you **fine-tune** a model on a specific task (*e.g., medical documents*), the embeddings can shift to represent medical meanings better.  
+3. **Different Model Layers** → In deep models, embeddings evolve **across layers**. The deeper layers typically contain more task-specific information.  
+
+💡 **Example**:  
+- A **lawyer** searching for `"bank"` might get a vector closer to **finance-related** terms.  
+- A **biologist** searching for `"bank"` might get a vector closer to **ecosystem-related** terms.  
+
+---
+
+# 4. Is There a Universal Embedding, or Does Each Model Use Different Embeddings?  
+
+There is **no single universal embedding** because different models use different training data, architectures, and objectives.  
+
+| Model    | Embedding Type          | Fixed or Dynamic? |
+|----------|-------------------------|-------------------|
+| **Word2Vec** | Single word embeddings | Fixed |
+| **GloVe**    | Single word embeddings | Fixed |
+| **FastText** | Word + Subword embeddings | Fixed |
+| **BERT**     | Contextual embeddings | Dynamic |
+| **GPT**      | Contextual embeddings | Dynamic |
+| **T5**       | Contextual embeddings | Dynamic |
+
+### Why does each model use different embeddings?  
+- **Word2Vec and GloVe** were trained on Wikipedia/news, so they represent **general meanings**.  
+- **BERT** is trained to understand **sentence context**, so it assigns different embeddings to the same word in different cases.  
+- **GPT** learns embeddings **while generating text**, making them **optimized for completion tasks**.  
+- **Fine-tuned models** (*e.g., BioBERT for medical texts, LegalBERT for legal documents*) have embeddings that reflect **domain-specific meanings**.  
+
+---
+
+# 🎵 Analogy: Music Playlists vs. Live Music Performance  
+
+1. **Static Embeddings (Word2Vec, GloVe) → Pre-recorded Playlist**  
+   - Imagine a **music playlist** where each song is **fixed**.  
+   - You always get the **same song (embedding) for a given word**, regardless of the situation.  
+
+2. **Dynamic Embeddings (BERT, GPT) → Live Music Performance**  
+   - A **live musician** adjusts the song based on the audience, mood, and context.  
+   - The **word embedding changes dynamically** based on the sentence.  
+
+---
+
+# ✅ Final Summary  
+✔ **The embedding vector is learned** from large text data, not predefined.  
+✔ **Static embeddings** (*Word2Vec, GloVe*) use a **fixed dictionary of word vectors**.  
+✔ **Dynamic embeddings** (*BERT, GPT*) **change based on context**.  
+✔ **There is no universal embedding**—each model has its own way of representing words.  
+</details>
 
 ### More detailed info here
 - [3Blue1Brown](https://www.youtube.com/watch?v=wjZofJX0v4M)
