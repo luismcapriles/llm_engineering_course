@@ -11,7 +11,74 @@ We can interact with a model in two main ways:
 
 - **Training**: The process of providing a model with data so it adapts and improves at a task over time. This happens by updating its settings (parameters or weights).
 - **Inference**: Using a pre-trained model to generate new outputs.
+---
+<details><summary><strong>Auto-Encoding vs. Auto-Regressive Models and How They Relate to Embeddings</strong></summary>
+# Auto-Encoding vs. Auto-Regressive Models and How They Relate to Embeddings  
 
+## 1. Auto-Encoding vs. Auto-Regressive Models  
+
+---
+
+## 2. Auto-Encoding Models (e.g., BERT)  
+These models encode input into a dense representation (**embedding**) and try to reconstruct the original input.  
+
+### 🔹 How They Work:  
+- They take an input text, **mask some words**, and train the model to **predict those missing words**.  
+- The goal is to **learn contextual embeddings**, meaning each word is represented based on its **sentence context**.  
+
+### 🔹 Example:  
+- **Input**: `"The cat sat on the MASK."`  
+- **Model Predicts**: `"mat"`  
+- The model learns that `"cat"` and `"mat"` are often related, improving its embeddings.  
+
+### 🔹 Relation to Embeddings:  
+- **Auto-encoding models produce deep contextual embeddings**, meaning the word `"bank"` in `"financial bank"` gets a different embedding than in `"river bank"`.  
+- This is why **BERT-based embeddings** are more powerful than static ones like **Word2Vec**.  
+
+---
+
+## 3. Auto-Regressive Models (e.g., GPT)  
+These models predict the **next word** based on **previous words**.  
+
+### 🔹 How They Work:  
+- Given an **input sequence**, they **generate the next word/token step by step**.  
+- Instead of masking words like in **BERT**, they use **causal attention**, meaning the model **only looks at past words**.  
+
+### 🔹 Example:  
+- **Input**: `"The cat sat on the"`  
+- **Model Predicts**: `"mat."`  
+
+### 🔹 Relation to Embeddings:  
+- **Auto-regressive models generate embeddings dynamically** while predicting text.  
+- Each **token is encoded into a hidden representation** before making the next prediction.  
+- Unlike auto-encoding models, which **learn bidirectional context** (both left and right), **auto-regressive models only learn from past words**.  
+
+---
+
+## 4. How This Relates to Embeddings  
+Both models generate embeddings but in **different ways**:  
+
+### 🔹 1. Auto-Encoding Models (**BERT**)  
+✔ Learn **bidirectional embeddings** that capture **deep meaning**.  
+✔ Used for **semantic understanding** (*e.g., search engines, question answering*).  
+
+### 🔹 2. Auto-Regressive Models (**GPT**)  
+✔ Learn **contextual embeddings** based on **left-to-right training**.  
+✔ Used for **text generation** (*e.g., chatbots, story writing*).  
+
+---
+
+## 🎭 Analogy: Compression vs. Storytelling  
+
+### 📂 **Auto-Encoding (BERT) → Zip File**  
+- Imagine you have a big document and you **compress it into a meaningful summary** (**embeddings**).  
+- You can then use that **compressed information** to **reconstruct missing parts** of the document.  
+
+### 📖 **Auto-Regressive (GPT) → Writing a Novel**  
+- You **start with the first sentence** and keep **adding words based on the previous ones**.  
+- You **never go back to edit**, only move forward.  
+</details>
+---
 ## Traditional LLMs vs. Embedding Models
 We have previously worked with **Traditional LLMs** or **Auto-regressive LLMs**, which predict a future token based on previous information (text, image, audio, etc.) These model select the next token based on the highest probability distribution. Once the next token is selected, the model can generate completely new output by repeating the process over and over again. 
 
