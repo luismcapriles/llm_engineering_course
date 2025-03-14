@@ -36,7 +36,7 @@ from langchain.vectorstores import FAISS
 # Load and process the document
 loader = TextLoader("data.txt")
 documents = loader.load()
-text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
+text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=0,separator=" ")
 texts = text_splitter.split_documents(documents)
 
 # Create a vector store
