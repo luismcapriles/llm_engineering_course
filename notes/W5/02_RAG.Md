@@ -50,4 +50,4 @@ RAG represents a key advancement in making LLMs more reliable and useful for rea
 1. RAG works best on documents that contain natural language, organized into paragraphs (or any kind of chunk) of information that might provide useful context for answering questions.
 So there's no concern with having Excel files - but there might be a concern if they only contain numbers.
 An Excel file with customer feedback might be valuable during a RAG flow. An Excel file with customer purchase history might be less useful initially - you'd need to write something to extract and organize the data in a way that's most suited for vectorization & retrieval.
-
+>
