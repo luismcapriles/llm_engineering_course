@@ -77,6 +77,28 @@ In the course we use Langchain for our RAG application:
 
 ![langchain](https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W5/img_langchain_w5.png)
 
+
+<details><summary><strong>Why do we chunk text?</strong></summary>
+Splitting text into chunks when using LangChain serves several critical purposes:
+
+1. **Token Limitations**: LLMs have maximum context window sizes (like 8K, 32K, or 128K tokens). Large documents often exceed these limits, so chunking allows you to process documents of any size.
+
+2. **Retrieval Efficiency**: Smaller chunks create more precise vector embeddings, making semantic search more accurate. When you ask a question, the system can retrieve the most relevant chunks rather than entire documents.
+
+3. **Processing Efficiency**: Working with smaller chunks reduces memory usage and computational load, especially when embedding or processing large document collections.
+
+4. **Relevance Focus**: By retrieving only the chunks relevant to a query, you reduce noise in the LLM's context window and keep the model focused on pertinent information.
+
+5. **Cost Management**: Since most LLM APIs charge by token, only sending relevant chunks rather than entire documents significantly reduces API costs.
+
+The chunking process typically involves:
+- Splitting text by character count, token count, or semantic boundaries
+- Adding overlap between chunks to avoid breaking context across chunk boundaries
+- Balancing chunk size (too small loses context, too large dilutes relevance signals)
+
+For example, a 300-page book might be broken into hundreds of chunks, with only the 3-5 most relevant chunks sent to the LLM when answering a specific question about the book.
+</details>
+
 <details><summary><strong>Chunk as Technique</strong></summary>
 
 ## Pros and Cons - chunking is a technique that requires experimentation.
@@ -106,6 +128,4 @@ And only the **2nd chunk** would be close to the question. And when we provide t
 Hopefully that highlights that there's no simple answer with chunking - the right strategy will depend on your documents and your use case. 
 (There are advanced techniques in which you use another LLM to help identify semantically meaningful chunks and vectorize them in the best way.)
 The best way to see this in action is to run some experiments yourself! Try chunking at a super-granular level, and try chunking in documents. Observe how it affects the accuracy of results.
-
-
 </details>
