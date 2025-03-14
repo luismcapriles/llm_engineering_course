@@ -192,5 +192,7 @@ vectorstore =Chroma.from_documents(documents=chunks, embedding=embeddings, persi
 
 ```
 [More info about Chroma](https://docs.trychroma.com/docs/overview/introduction)
+
 ---
+
 ![key_abstraction](https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W5/img_langchain_abstractions_w5.png)
