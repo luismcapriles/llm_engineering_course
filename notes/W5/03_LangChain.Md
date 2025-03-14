@@ -92,13 +92,16 @@ Then the vector associated with that question will be similar to the answer, and
 
 If, however, we put the entire document for Maxine in as one chunk, then the vector will reflect the entire meaning of everything she's done. 
 When we ask the question "Who won the prestigious IIOTY award", it's much less likely that this question will be close to Maxine's entire employee document, which conveys lots of other information not reflected in the question. So we are less likely to provide the right context.
-And going the other direction: if we chunk every sentence, then we would vectorize:
-**"Maxine is a key employee"**
-and
-**"She won the prestigious IIOTY award".**
-separately.
+And going the other direction: if we chunk every sentence, then we would separate vectors as:
 
-And only the 2nd chunk would be close to the question. And when we provide that information in the context, it's missing Maxine's name - and so RAG will not be successful.
+**"Maxine is a key employee"**
+
+and
+
+**"She won the prestigious IIOTY award".**
+
+
+And only the **2nd chunk** would be close to the question. And when we provide that information in the context, it's missing Maxine's name - and so RAG will not be successful.
 
 Hopefully that highlights that there's no simple answer with chunking - the right strategy will depend on your documents and your use case. 
 (There are advanced techniques in which you use another LLM to help identify semantically meaningful chunks and vectorize them in the best way.)
