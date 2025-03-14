@@ -177,3 +177,20 @@ Hopefully that highlights that there's no simple answer with chunking - the righ
 (There are advanced techniques in which you use another LLM to help identify semantically meaningful chunks and vectorize them in the best way.)
 The best way to see this in action is to run some experiments yourself! Try chunking at a super-granular level, and try chunking in documents. Observe how it affects the accuracy of results.
 </details>
+
+## Using OpenAi for Vector Embedding + Chroma for Vector DB
+```python
+#imports for Embedding , Chroma and plotly
+from langchain_openai import OpenAIEmbeddings, ChatOpenAI 
+from langchain_chroma import Chroma
+
+#using OpenAi Embeddings
+embeddings = OpenAIEmbeddings()
+
+#Creating the Chroma vectorstore
+vectorstore =Chroma.from_documents(documents=chunks, embedding=embeddings, persist_directory=db_name)
+
+```
+[More info about Chroma](https://docs.trychroma.com/docs/overview/introduction)
+---
+![]()
