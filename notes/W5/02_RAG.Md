@@ -12,7 +12,7 @@ RAG combines two key components:
 
 1. **Query Processing**: When a user asks a question, the system processes it to understand what information is needed.
 
-2. **Vectorization** In order the system to understand this input, the text is converted into [vector embeddings](https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W5/01_Intro_to_embedding_llms.Md) using Encoding LLM.
+2. **Vectorization**: In order the system to understand this input, the text is converted into [vector embeddings](https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W5/01_Intro_to_embedding_llms.Md) using Encoding LLM.
 
 
 3. **Retrieval**: The system searches through a knowledge base (documents, databases, etc.) to find information relevant to the query. This often involves:
