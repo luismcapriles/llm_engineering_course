@@ -75,5 +75,5 @@ print(response)
 
 In the course we use Langchain for our RAG application: 
 
-()
+![langchain](https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W5/img_langchain_w5.png)
 
