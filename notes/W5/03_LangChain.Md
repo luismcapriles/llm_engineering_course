@@ -101,7 +101,7 @@ For example, a 300-page book might be broken into hundreds of chunks, with only 
 
 <details><summary><strong>Chunk as Technique</strong></summary>
 
-## Pros and Cons - chunking is a technique that requires experimentation.
+## Example of vectorizing chunks vs entire documents.
 
 Suppose you have the text,
 
