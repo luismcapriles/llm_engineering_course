@@ -191,3 +191,4 @@ embeddings = OpenAIEmbeddings()
 vectorstore =Chroma.from_documents(documents=chunks, embedding=embeddings, persist_directory=db_name)
 
 ```
+[More info about Chroma](https://docs.trychroma.com/docs/overview/introduction)
