@@ -222,3 +222,9 @@ conversation_chain = ConversationalRetrievalChain.from_llm(
     memory = memory
 )
 ```
+To make use of the Conversation Chain, we need to pass the query:
+```python
+query = "Describe in few sentences the Parking Spot Policy "
+result = conversation_chain.invoke({"question":query})
+print(result["answer"])
+```
