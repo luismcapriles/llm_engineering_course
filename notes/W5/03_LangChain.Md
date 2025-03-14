@@ -194,5 +194,31 @@ vectorstore =Chroma.from_documents(documents=chunks, embedding=embeddings, persi
 [More info about Chroma](https://docs.trychroma.com/docs/overview/introduction)
 
 ---
+## RAG pipeline using Langchain
 
 ![key_abstraction](https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W5/img_langchain_abstractions_w5.png)
+
+The key abstraction around LLM Retriever and Memory can be set in 4 lines of code
+
+```python
+#import for RAG pipeline
+from langchain.memory import ConversationBufferMemory
+from langchain.chains import ConversationalRetrievalChain
+from langchain_openai import ChatOpenAI
+
+#create a new Chat with OpenAI 
+llm = ChatOpenAI(temperature=0.7, model=Model)
+
+#the retriever is an abstraction over the vectorstore 
+retriever = vectorstore.as_retriever()
+
+#set up the conversation memory for the chat
+memory = ConversationBufferMemory(memory_key="chat_history",return_messages= True)
+
+#putting it together: set up the conversation chain with LLM, Vectorstore and Memory
+conversation_chain = ConversationalRetrievalChain.from_llm(
+    llm= llm,
+    retriever= retriever, 
+    memory = memory
+)
+```
