@@ -77,6 +77,54 @@ In the course we use Langchain for our RAG application:
 
 ![langchain](https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W5/img_langchain_w5.png)
 
+```python
+#langChain Libraries
+
+from langchain.document_loaders import DirectoryLoader, TextLoader #allows to load multiples documents from a directory structure
+from langchain.text_splitter import CharacterTextSplitter #allows to split the documents in chunks 
+
+from langchain_community.document_loaders import PyPDFLoader #allow to load PDF files
+```
+
+## Reading the documents from directory
+```python
+folders = glob.glob("building_docs*/**")
+
+#load all documents into a list
+documents =[]
+
+for folder in folders:
+    #here we tell the loader to load only folders with pdf files
+    #folder ->we pass the path where the files are
+    #glob= -> determines which files to load ** means "search recursively through all subdirectories"  *.pdf means "match any file with a .pdf extension"
+    #loader_cls -> which document loader to use. PyPDFLoader is LangChain's loader specifically designed to handle PDF files
+    loader = DirectoryLoader(folder,glob="**/*.pdf",loader_cls=PyPDFLoader)
+
+    #all docs from the current folder loaded into folder load
+    folder_docs = loader.load()
+
+    #also we collect the type of document from the subfolder name to add this into the metadata
+    #for example ->> 'knowledge-base\\company'->> company
+    doc_type = os.path.basename(folder)
+```
+
+## Adding metadata to the documents
+
+```python
+    for doc in folder_docs:
+        #we add the doc type yag into the metadata
+        doc.metadata["doc_type"] = doc_type
+        #we save the document into the document list
+        documents.append(doc)
+```
+
+## Splitting the documents into chunks
+```python
+#now let's split the documents into chunks
+#use the separator= " " ensures that words aren't cut off in the middle
+text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=100, separator=" ")
+chunks =text_splitter.split_documents(documents)
+```
 
 <details><summary><strong>Why do we chunk text?</strong></summary>
 Splitting text into chunks when using LangChain serves several critical purposes:
