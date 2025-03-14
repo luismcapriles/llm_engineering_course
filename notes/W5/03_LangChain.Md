@@ -178,7 +178,7 @@ Hopefully that highlights that there's no simple answer with chunking - the righ
 The best way to see this in action is to run some experiments yourself! Try chunking at a super-granular level, and try chunking in documents. Observe how it affects the accuracy of results.
 </details>
 
-## Use OpenAi Embedding
+## Using OpenAi for Vector Embedding + Chroma for Vector DB
 ```python
 #imports for Embedding , Chroma and plotly
 from langchain_openai import OpenAIEmbeddings, ChatOpenAI 
