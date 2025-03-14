@@ -192,3 +192,5 @@ vectorstore =Chroma.from_documents(documents=chunks, embedding=embeddings, persi
 
 ```
 [More info about Chroma](https://docs.trychroma.com/docs/overview/introduction)
+---
+![]()
