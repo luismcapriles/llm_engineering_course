@@ -228,3 +228,14 @@ query = "Describe in few sentences the Parking Spot Policy "
 result = conversation_chain.invoke({"question":query})
 print(result["answer"])
 ```
+
+# Now integrating with Gradio GUI
+
+```python
+def chat(message,history):
+    result = conversation_chain.invoke({"question":message})
+    return result["answer"]
+
+# And passing the function chat to Gradio:
+view = gr.ChatInterface(chat, type="messages").launch(inbrowser=True)
+```
