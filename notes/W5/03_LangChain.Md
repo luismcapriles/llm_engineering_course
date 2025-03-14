@@ -82,21 +82,22 @@ In the course we use Langchain for our RAG application:
 ## Pros and Cons - chunking is a technique that requires experimentation.
 
 Suppose you have the text,
-<span style="color:blue">some *blue* text</span>.
- "Maxine is a key employee. She won the prestigious IIOTY award".
+
+ **"Maxine is a key employee. She won the prestigious IIOTY award".**
 
 If that's identified as a chunk in its own right, then it will get a vector associated with it that reflects the meaning of that sentence. If someone later asks the question.
 
-"Who won the prestigious IIOT award?"
+**"Who won the prestigious IIOT award?"**
 Then the vector associated with that question will be similar to the answer, and bingo - RAG will select the right context for the prompt.
 
 If, however, we put the entire document for Maxine in as one chunk, then the vector will reflect the entire meaning of everything she's done. 
 When we ask the question "Who won the prestigious IIOTY award", it's much less likely that this question will be close to Maxine's entire employee document, which conveys lots of other information not reflected in the question. So we are less likely to provide the right context.
 And going the other direction: if we chunk every sentence, then we would vectorize:
-"Maxine is a key employee"
+**"Maxine is a key employee"**
 and
-"She won the prestigious IIOTY award".
+**"She won the prestigious IIOTY award".**
 separately.
+
 And only the 2nd chunk would be close to the question. And when we provide that information in the context, it's missing Maxine's name - and so RAG will not be successful.
 
 Hopefully that highlights that there's no simple answer with chunking - the right strategy will depend on your documents and your use case. 
