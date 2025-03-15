@@ -242,7 +242,7 @@ view = gr.ChatInterface(chat, type="messages").launch(inbrowser=True)
 --- 
 
 # How to Troubleshoot RAG with Langchain
-
+![langchain_troubleshoot](https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W5/img_langchain_troubleshooting.png)
 
 
 There are different points in the RAG pipeline that can be troubleshooted 
