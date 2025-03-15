@@ -241,7 +241,7 @@ view = gr.ChatInterface(chat, type="messages").launch(inbrowser=True)
 ```
 --- 
 
-### How to Troubleshoot RAG with Langchain
+# How to Troubleshoot RAG with Langchain
 
 
 
