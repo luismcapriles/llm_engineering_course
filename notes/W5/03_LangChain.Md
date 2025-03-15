@@ -239,3 +239,14 @@ def chat(message,history):
 # And passing the function chat to Gradio:
 view = gr.ChatInterface(chat, type="messages").launch(inbrowser=True)
 ```
+--- 
+
+### How to Troubleshoot RAG with Langchain
+
+
+
+There are different points in the RAG pipeline that can be troubleshooted 
+- Queries: evaluating queries
+    - Evaluating queries allows you to know what has been pass to the model as prompt, what retrived vector as been found
+    - Passing larger number of chunks in the retriver can help (more data can help)
+    -   retriever= vectorstore.as_retriever(search_kwargs="k": 25) ->> k is how many chunks to use
