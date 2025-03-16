@@ -246,7 +246,39 @@ view = gr.ChatInterface(chat, type="messages").launch(inbrowser=True)
 
 
 There are different points in the RAG pipeline that can be troubleshooted 
-- Queries: evaluating queries
-    - Evaluating queries allows you to know what has been pass to the model as prompt, what retrived vector as been found
-    - Passing larger number of chunks in the retriver can help (more data can help)
-    -   retriever= vectorstore.as_retriever(search_kwargs="k": 25) ->> k is how many chunks to use
+- Queries:
+    - 1. Evaluating queries allows you to know what has been pass to the model as prompt, what retrived vector as been found.
+         callbacks=[StdOutCallbackHandler()] helps to do this
+    
+    - 2. Using PromptTemplate: Langchain comes with default prompt. You can override it with your own version:
+         combine_docs_chain_kwargs={"document_variable_name": "context"}
+    
+    - 3. Passing larger number of chunks in the retriver can help (more data can help)
+         Consider Using search_kwargs to Optimize Retrieval
+           retriever= vectorstore.as_retriever(search_kwargs="k": 5) ->> K nearest neighbour search in vector space
+         
+    - 4. Experiment with Temperature:
+         If accuracy is critical, try lowering it (e.g., temperature=0.2)
+
+### 1. Evaluating queries with callbacks
+```python
+from langchain_core.callbacks import StdOutCallbackHandler
+
+llm = ChatOpenAI(temperature=0.5,model=Model)
+memory= ConversationBufferMemory(memory_key="chat_history",return_messages=True)
+retriever= vectorstore.as_retriever()
+
+conversation_chain = ConversationalRetrievalChain.from_llm(
+    llm=llm, 
+    retriever=retriever, 
+    memory=memory, 
+    callbacks=[StdOutCallbackHandler()]
+)
+```
+To execute *conversation_chain* use the *.invoke* method and we pass manually a query
+```python
+query = "how much cost the SHOWER HEAD?"
+result = conversation_chain.invoke({"question":query})
+answer = result["answer"]
+print("\nAnswer:",answer)
+```
