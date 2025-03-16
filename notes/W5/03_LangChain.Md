@@ -129,7 +129,7 @@ chunks =text_splitter.split_documents(documents)
 <details><summary><strong>Why do we chunk text?</strong></summary>
 Splitting text into chunks when using LangChain serves several critical purposes:
 
-1. **Token Limitations**: LLMs have maximum context window sizes (like 8K, 32K, or 128K tokens). Large documents often exceed these limits, so chunking allows you to process documents of any size.
+1. **Token Limitations**: *Embedding Models* have maximum context window sizes (like 8K, 32K, or 128K tokens). Large documents often exceed these limits, so chunking allows you to process documents of any size.
 
 2. **Retrieval Efficiency**: Smaller chunks create more precise vector embeddings, making semantic search more accurate. When you ask a question, the system can retrieve the most relevant chunks rather than entire documents.
 
