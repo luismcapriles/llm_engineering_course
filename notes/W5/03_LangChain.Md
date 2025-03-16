@@ -194,7 +194,8 @@ vectorstore =Chroma.from_documents(documents=chunks, embedding=embeddings, persi
 from langchain.vectorstores import FAISS
 vectorstore = FAISS.from_documents(chunks, embedding=embeddings)
 ```
-[Chorma vs FAISS](.notes/W5/04_Vector_Store_DB.Md)
+[Chorma vs FAISS](.notes/W5/04_Vector_Store_DB.Md)  
+
 [More info about Chroma](https://docs.trychroma.com/docs/overview/introduction)
 
 ---
