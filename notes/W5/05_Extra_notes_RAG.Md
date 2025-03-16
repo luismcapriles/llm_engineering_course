@@ -4,13 +4,15 @@
 Pull structured and unstructured data from different sources
 
 Web
-↳ Crawl4AI
 
-↳ FireCrawl
-
-↳ ScrapeGraph AI
+  ↳ Crawl4AI
+  
+  ↳ FireCrawl
+  
+  ↳ ScrapeGraph AI
 
 Documents
+
 ↳ Docling
 
 ↳ Lama Parse
