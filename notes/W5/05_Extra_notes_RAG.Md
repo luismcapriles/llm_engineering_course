@@ -119,9 +119,10 @@ Monitor and debug your RAG pipeline
 ↳ Modal
 ↳ Prefect Marvin 
 ↳ BentoML
-</details>
+
 📈 Evaluation
 Evaluate RAG System performance
 ↳ Ragas
 ↳ Giskard
 ↳ TruLens
+</details>
