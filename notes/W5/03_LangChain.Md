@@ -311,6 +311,7 @@ prompt_template = PromptTemplate(
 )
 ```
 > Note: I found issues with Langchain default prompt. The model changed from [En] to [Sp] without a reason. It might comes from the prompt.   
+> [Default]   
 > "Prompt after formatting:  
 > Given the following conversation and a follow up question, rephrase the follow up question to be a standalone question, in its original language."  
 
@@ -333,6 +334,48 @@ Finally connecting the prompt into the *conversation_chain*
 llm = ChatOpenAI(temperature=0.5,model=Model)
 memory= ConversationBufferMemory(memory_key="chat_history",return_messages=True)
 retriever= vectorstore.as_retriever()
+
+conversation_chain = ConversationalRetrievalChain.from_llm(
+    llm=llm, 
+    retriever=retriever, 
+    memory=memory, 
+    callbacks=[StdOutCallbackHandler()],
+    combine_docs_chain_kwargs={
+        "document_variable_name": "context",
+        "prompt":prompt_template # Pass your prompt here
+    },
+    condense_question_prompt=condense_prompt_template  # Custom question rephrasing prompt
+)
+```
+### 3. Passing larger number of chunks in the retriver
+Consider Using search_kwargs to Optimize Retrieval
+
+retriever= vectorstore.as_retriever(search_kwargs="k": 5) ->> K nearest neighbour search in vector space
+
+```python
+llm = ChatOpenAI(temperature=0.5,model=Model)
+memory= ConversationBufferMemory(memory_key="chat_history",return_messages=True)
+retriever= vectorstore.as_retriever(search_kwargs={"k":5}) #K nearest neighbour search in vector space
+
+conversation_chain = ConversationalRetrievalChain.from_llm(
+    llm=llm, 
+    retriever=retriever, 
+    memory=memory, 
+    callbacks=[StdOutCallbackHandler()],
+    combine_docs_chain_kwargs={
+        "document_variable_name": "context",
+        "prompt":prompt_template # Pass your prompt here
+    },
+    condense_question_prompt=condense_prompt_template  # Custom question rephrasing prompt
+)
+```
+
+### 4. Experiment with Temperature:
+If accuracy is critical, try lowering it (e.g., temperature=0.2)
+```python
+llm = ChatOpenAI(temperature=0.5,model=Model)
+memory= ConversationBufferMemory(memory_key="chat_history",return_messages=True)
+retriever= vectorstore.as_retriever(search_kwargs={"k":5}) #K nearest neighbour search in vector space
 
 conversation_chain = ConversationalRetrievalChain.from_llm(
     llm=llm, 
