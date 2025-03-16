@@ -282,3 +282,37 @@ result = conversation_chain.invoke({"question":query})
 answer = result["answer"]
 print("\nAnswer:",answer)
 ```
+
+### 2. Using Prompt Template in Langchain
+This ensures that every query uses a consistent structure when interacting with the LLM.
+
+LangChain use its default prompts. This can be optimized further by creating your own prompts and connecting them into the conversation chain.
+
+In your code, you can see two distinct prompts being used:
+
+A prompt for question rephrasing ("Given the following conversation...")
+A system prompt for answering questions ("Use the following pieces of context...")
+
+To use your custom prompt template, you need to pass it to the ConversationalRetrievalChain when initializing it.
+```python
+# Define a default prompt template
+from langchain.prompts import PromptTemplate
+
+prompt_template = PromptTemplate(
+    input_variables=["context", "chat_history", "question"],
+    template=(
+        "You are an expert assistant. Use the following retrieved context to answer the user's question."
+        " If the answer is not found in the context, say that you don't know.\n\n"
+        "Chat History:\n{chat_history}\n\n"
+        "Context:\n{context}\n\n"
+        "User Question:\n{question}\n\n"
+        "Answer:"
+    )
+)
+```
+> Note: I found issues with Langchain default prompt. The model changed from En to Sp without a reason. It might comes from the prompt. 
+> "Prompt after formatting:
+> Given the following conversation and a follow up question, rephrase the follow up question to be a standalone question, in its original language."
+
+
+If you  to customize the question rephrasing prompt
