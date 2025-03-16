@@ -5,60 +5,85 @@ Pull structured and unstructured data from different sources
 
 Web
 ↳ Crawl4AI
+
 ↳ FireCrawl
+
 ↳ ScrapeGraph AI
 
 Documents
 ↳ Docling
+
 ↳ Lama Parse
+
 ↳ MegaParser
+
 ↳ ExtractThinker
 
 🔪 Data Processing & Chunking
 Process and segment documents for optimal retrieval
 
 Text Splitting 
+
 ↳ Instructor
+
 ↳ LlamaHub 
+
 ↳ unstructured.io 
 
 Chunking Strategies 
 ↳ Token-aware
+
 ↳ Recursive 
+
 ↳ Semantic 
+
 
 🔠 Text Embeddings
 Convert text into embeddings for similarity search
 
 Open
-↳ BGE
-↳ Sbert
-↳ Nomic
-↳ Ollama
+↳ BGE  
+
+↳ Sbert  
+
+↳ Nomic  
+
+↳ Ollama  
+
 
 Closed
-↳ Cohere
-↳ OpenAI
-↳ VoyageAI
+↳ Cohere  
+
+↳ OpenAI  
+
+↳ VoyageAI  
+
 
 🔍 Query Understanding 
 Transform queries for better retrieval precision
-↳ HyDE 
-↳ Multi-query 
+↳ HyDE  
+
+↳ Multi-query  
+
 ↳ Query expansion
 
 🔃 Retrieval Enhancement
 Improve relevance of retrieved documents
 
 Re-ranking 
-↳ BGE Rerank
-↳ Cohere Rerank 
+↳ BGE Rerank  
+
+↳ Cohere Rerank  
+
 
 Hybrid Search 
-↳ DPR
-↳ ColBERT 
+↳ DPR  
+
+↳ ColBERT  
+
 
 Unified Semantic Space
+
 ↳ Superlinked
 
 🔢 Vector Databases
