@@ -178,19 +178,23 @@ Hopefully that highlights that there's no simple answer with chunking - the righ
 The best way to see this in action is to run some experiments yourself! Try chunking at a super-granular level, and try chunking in documents. Observe how it affects the accuracy of results.
 </details>
 
-## Using OpenAi for Vector Embedding + Chroma for Vector DB
+## Using OpenAi for Vector Embedding 
 ```python
 #imports for Embedding , Chroma and plotly
 from langchain_openai import OpenAIEmbeddings, ChatOpenAI 
-from langchain_chroma import Chroma
 
 #using OpenAi Embeddings
 embeddings = OpenAIEmbeddings()
-
-#Creating the Chroma vectorstore
+```
+## Creating the Vectorstore (Chroma vs FAISS)
+```python
+from langchain_chroma import Chroma
 vectorstore =Chroma.from_documents(documents=chunks, embedding=embeddings, persist_directory=db_name)
 
+from langchain.vectorstores import FAISS
+vectorstore = FAISS.from_documents(chunks, embedding=embeddings)
 ```
+[Chorma vs FAISS](.notes/W5/04_Vector_Store_DB.Md)
 [More info about Chroma](https://docs.trychroma.com/docs/overview/introduction)
 
 ---
