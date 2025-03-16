@@ -38,6 +38,7 @@ Welcome to our comprehensive 8-week journey through the cutting-edge world of Ge
 - 📚 Master RAG to improve the accuracy of your solutions
 - 📊 Become proficient with vector embeddings and explore vectors in popular open-source vector datastores
 - 🏗️ Build a full business solution similar to real products on the market today
+- 📝 Check W5 notes: [W5](./notes/W5)
 
 ### Week 6: Transitioning to Training
 - 🔄 Move from inference to training
