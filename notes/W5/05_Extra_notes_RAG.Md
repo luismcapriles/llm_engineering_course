@@ -1,129 +1,128 @@
 <details>
 <summary><strong>The Essential RAG Developer's Stack</strong></summary>
 
-### 📥 Extraction
+## 📥 Extraction
 *Pull structured and unstructured data from different sources*
 
-**Web**
-- Crawl4AI
-- FireCrawl
-- ScrapeGraph AI
+### Web
+- [Crawl4AI](https://crawl4ai.com)
+- [FireCrawl](https://firecrawl.ai)
+- [ScrapeGraph AI](https://scrapegraph.ai)
 
-**Documents**
-- Docling
-- Lama Parse
-- MegaParser
-- ExtractThinker
+### Documents
+- [Docling](https://docling.ai)
+- [Lama Parse](https://lamaparse.com)
+- [MegaParser](https://megaparser.ai)
+- [ExtractThinker](https://extractthinker.com)
 
-### 🔪 Data Processing & Chunking
+## 🔪 Data Processing & Chunking
 *Process and segment documents for optimal retrieval*
 
-**Text Splitting**
-- Instructor
-- LlamaHub
-- unstructured.io
+### Text Splitting
+- [Instructor](https://instructor.ai)
+- [LlamaHub](https://llamahub.ai)
+- [unstructured.io](https://unstructured.io)
 
-**Chunking Strategies**
+### Chunking Strategies
 - Token-aware
 - Recursive
 - Semantic
 
-### 🔠 Text Embeddings
+## 🔠 Text Embeddings
 *Convert text into embeddings for similarity search*
 
-**Open**
-- BGE
-- Sbert
-- Nomic
-- Ollama
+### Open
+- [BGE](https://bge.ai)
+- [Sbert](https://www.sbert.net)
+- [Nomic](https://nomic.ai)
+- [Ollama](https://ollama.ai)
 
-**Closed**
-- Cohere
-- OpenAI
-- VoyageAI
+### Closed
+- [Cohere](https://cohere.ai)
+- [OpenAI](https://openai.com)
+- [VoyageAI](https://voyageai.com)
 
-### 🔍 Query Understanding
+## 🔍 Query Understanding
 *Transform queries for better retrieval precision*
-- HyDE
+- [HyDE](https://hyde.ai)
 - Multi-query
 - Query expansion
 
-### 🔃 Retrieval Enhancement
+## 🔃 Retrieval Enhancement
 *Improve relevance of retrieved documents*
 
-**Re-ranking**
-- BGE Rerank
-- Cohere Rerank
+### Re-ranking
+- [BGE Rerank](https://bge.ai)
+- [Cohere Rerank](https://cohere.ai)
 
-**Hybrid Search**
-- DPR
-- ColBERT
+### Hybrid Search
+- [DPR](https://dpr.ai)
+- [ColBERT](https://colbert.ai)
 
-**Unified Semantic Space**
-- Superlinked
+### Unified Semantic Space
+- [Superlinked](https://superlinked.com)
 
-### 🔢 Vector Databases
+## 🔢 Vector Databases
 *Store and search vector embeddings*
-- Milvus
-- Qdrant
-- Weaviate
-- Chroma
-- Pinecone
+- [Milvus](https://milvus.io)
+- [Qdrant](https://qdrant.tech)
+- [Weaviate](https://weaviate.io)
+- [Chroma](https://trychroma.com)
+- [Pinecone](https://pinecone.io)
 
-### 🕸️ Knowledge Graphs
+## 🕸️ Knowledge Graphs
 *Structure and connect information*
-- Neo4j
-- Grakn
-- Wikibase
+- [Neo4j](https://neo4j.com)
+- [Grakn](https://grakn.ai)
+- [Wikibase](https://wikiba.se)
 
-### 🔌 Open LLMs Access
+## 🔌 Open LLMs Access
 *Enable running open models locally*
-- Groq
-- Ollama
-- Together AI
-- Hugging Face
+- [Groq](https://groq.com)
+- [Ollama](https://ollama.ai)
+- [Together AI](https://together.ai)
+- [Hugging Face](https://huggingface.co)
 
-### 🤖 LLMs
+## 🤖 LLMs
 *Handle generation using retrieved context*
 
-**Open**
-- Phi-4
-- Mistral
-- Qwen 2.5
-- Gemma 2
-- LLama 3.3
+### Open
+- [Phi-4](https://phi.ai)
+- [Mistral](https://mistral.ai)
+- [Qwen 2.5](https://qwen.ai)
+- [Gemma 2](https://gemma.ai)
+- [LLama 3.3](https://llama.ai)
 
-**Closed**
-- AWS
-- Claude
-- Gemini
-- Cohere
-- OpenAI
+### Closed
+- [AWS](https://aws.amazon.com)
+- [Claude](https://claude.ai)
+- [Gemini](https://gemini.google)
+- [Cohere](https://cohere.ai)
+- [OpenAI](https://openai.com)
 
-### 🛠️ Frameworks
+## 🛠️ Frameworks
 *Simplify development so you don't have to build everything from scratch*
-- LangChain
-- LlamaIndex Index
-- Haystack
-- NeuML TxtAI
-- Superlinked
+- [LangChain](https://www.langchain.com)
+- [LlamaIndex](https://llamaindex.ai)
+- [Haystack](https://haystack.deepset.ai)
+- [NeuML TxtAI](https://neuml.com/txtai)
+- [Superlinked](https://superlinked.com)
 
-### 🔭 Observability
+## 🔭 Observability
 *Monitor and debug your RAG pipeline*
-- Arize AI
-- WhyLabs
-- LangSmith
+- [Arize AI](https://arize.com)
+- [WhyLabs](https://whylabs.ai)
+- [LangSmith](https://langsmith.com)
 
-### 🎛 Orchestration
-- Beam AI
-- Modal
-- Prefect Marvin
-- BentoML
+## 🎛 Orchestration
+- [Beam AI](https://beam.ai)
+- [Modal](https://modal.com)
+- [Prefect Marvin](https://prefect.io)
+- [BentoML](https://bentoml.com)
 
-### 📈 Evaluation
+## 📈 Evaluation
 *Evaluate RAG System performance*
-- Ragas
-- Giskard
-- TruLens
-
+- [Ragas](https://ragas.io)
+- [Giskard](https://giskard.ai)
+- [TruLens](https://trulens.org)
 </details>
