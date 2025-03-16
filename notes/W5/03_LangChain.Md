@@ -198,6 +198,8 @@ vectorstore =Chroma.from_documents(documents=chunks, embedding=embeddings, persi
 
 ![key_abstraction](https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W5/img_langchain_abstractions_w5.png)
 
+[RAG tutorial from Langchain](https://www.youtube.com/watch?v=sVcwVQRHIc8)
+
 The key abstraction around LLM Retriever and Memory can be set in 4 lines of code
 
 ```python
