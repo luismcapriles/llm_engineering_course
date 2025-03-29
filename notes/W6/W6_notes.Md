@@ -645,3 +645,34 @@ It's time to break down our data into a training, test and validation dataset.
 It's typical to use **5%-10%** of your data for **testing purposes**, but 
 
 We actually we have far more than we need at this point. We'll take **400,000** points for training, and we'll reserve **2,000** for **testing**, although we won't use all of them.
+
+We must shuffle the samples and separate the datapoint in training and validation(test)
+```python
+random.seed(42)
+random.shuffle(sample)
+train = sample[:400_000]
+test = sample[400_000:402_000]
+print(f"Divided into a training set of {len(train):,} items and test set of {len(test):,} items")
+```
+
+```python
+print(train[0].prompt)
+```
+**Output:**
+**How much does this cost to the nearest dollar?
+
+Delphi FG0166 Fuel Pump Module
+Delphi brings 80 years of OE Heritage into each Delphi pump, ensuring quality and fitment for each Delphi part. Part is validated, tested and matched to the right vehicle application Delphi brings 80 years of OE Heritage into each Delphi assembly, ensuring quality and fitment for each Delphi part Always be sure to check and clean fuel tank to avoid unnecessary returns Rigorous OE-testing ensures the pump can withstand extreme temperatures Brand Delphi, Fit Type Vehicle Specific Fit, Dimensions LxWxH 19.7 x 7.7 x 5.1 inches, Weight 2.2 Pounds, Auto Part Position Unknown, Operation Mode Mechanical, Manufacturer Delphi, Model FUEL PUMP, Dimensions 19.7
+
+Price is $227.00**
+
+```python
+print(test[0].test_prompt())
+```
+**Output:**
+**How much does this cost to the nearest dollar?
+
+OEM AC Compressor w/A/C Repair Kit For Ford F150 F-150 V8 & Lincoln Mark LT 2007 2008 - BuyAutoParts NEW
+As one of the world's largest automotive parts suppliers, our parts are trusted every day by mechanics and vehicle owners worldwide. This A/C Compressor and Components Kit is manufactured and tested to the strictest OE standards for unparalleled performance. Built for trouble-free ownership and 100% visually inspected and quality tested, this A/C Compressor and Components Kit is backed by our 100% satisfaction guarantee. Guaranteed Exact Fit for easy installation 100% BRAND NEW, premium ISO/TS 16949 quality - tested to meet or exceed OEM specifications Engineered for superior durability, backed by industry-leading unlimited-mileage warranty Included in this K
+
+Price is $ **
