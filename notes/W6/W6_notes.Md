@@ -403,12 +403,11 @@ print(f"A grand total of {len(items):,} items")
 
 ---
 
-## NOTES: Recommendation of HW setting for handling heavy tasks like this.
+[Note]: Recommendation of HW setting for handling heavy tasks like this.  
 In most cases, for an **LLM engineer**, a machine with **50GB drive space and 16GB memory** is sufficient; you can survive on less, and more is nice but a luxury.  
 
-Personally, I'm an advocate for using **cloud servers** for GPUs. Some people like to invest in hefty GPU boxes for local training, and I get that—it's satisfying to run everything locally. But you could end up dropping **$4,000** for a high-end GPU box, and in **12 months** it might be obsolete.  
-
-I personally prefer to run on **the cloud**, and for **under $20 a month**, I get access to a lot of power.
+Personally, I'm an advocate for using **cloud servers** for GPUs. Some people like to invest in hefty GPU boxes for local training, and I get that—it's satisfying to run everything locally. But you could end up dropping **$4,000** for a high-end GPU box, and in **12 months** it might be obsolete. 
+I personally prefer to run on **the cloud**, and for **under $20 a month**, I get access to a lot of power.  
 
 ---
 
@@ -458,8 +457,11 @@ plt.show()
 ---
 
 ## Objective  
-When we analyze the training data, we are looking for a balanced dataset. If there is a subset that prevails, we risk our Model to be too specific data driven in that group and have lower performance in other subsets. This could lead into “Memory Issues” where model start “forgetting” and performance decrease in task related to other categories. 
-A balanced dataset ensures that the model generalizes well across all categories. If one subset of data is significantly more frequent, the model may overfit to it, learning patterns that do not apply to less common subsets. This imbalance can cause the model to struggle with rare cases, leading to poor performance in real-world applications. The term "memory issues" refers to a phenomenon where the model prioritizes frequently seen data and gradually performs worse on less frequent categories, resembling a form of "catastrophic forgetting" seen in machine learning.
+When we analyze the training data, we are looking for a balanced dataset. If there is a subset that prevails, we risk our Model to be too specific data driven in that group and have lower performance in other subsets. This could lead into **“Memory Issues”** where model start “forgetting” and performance decrease in task related to other categories. 
+
+A balanced dataset ensures that the model generalizes well across all categories. If one subset of data is significantly more frequent, the model may overfit to it, learning patterns that do not apply to less common subsets. This imbalance can cause the model to struggle with rare cases, leading to poor performance in real-world applications. The term "memory issues" refers to a phenomenon where the model prioritizes frequently seen data and gradually performs worse on less frequent categories, resembling a form of **"catastrophic forgetting"** seen in machine learning.
+
+
 
 In our scenario, Automotive is the most dominant categories. Let’s craft a dataset which is more balanced in terms of prices. Less heavily scewed to cheap items, with an average that's higher than $60. Try to balance out the categories - fewer Automotive items.
 
