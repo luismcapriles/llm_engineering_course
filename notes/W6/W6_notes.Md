@@ -690,6 +690,7 @@ plt.ylabel('Count')
 plt.hist(prices, rwidth=0.7, color="darkblue", bins=range(0, 1000, 10))
 plt.show()
 ```
+![snap](https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W6/img12_snapshot_sample_250_items_training.png)
 
 # Finally - upload your brand new dataset
 
@@ -730,4 +731,4 @@ with open('train.pkl', 'wb') as file:
 with open('test.pkl', 'wb') as file:
     pickle.dump(test, file)
 ```
-![snap](https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W6/img12_snapshot_sample_250_items_training.png)
+
