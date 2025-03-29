@@ -124,7 +124,7 @@ plt.ylabel('Count')
 plt.hist(lengths, rwidth=0.7, color="lightblue", bins=range(0, 6000, 100))
 plt.show()
 ```
-!(https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W6/img01_item_detail_lenght.png)
+![item_length](https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W6/img01_item_detail_lenght.png)
 
 ### Distribution of Prices  
 
@@ -137,7 +137,7 @@ plt.ylabel('Count')
 plt.hist(prices, rwidth=0.7, color="orange", bins=range(0, 1000, 10))
 plt.show()
 ```
-!(https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W6/img02_item_ave_price.png)
+![price_dist](https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W6/img02_item_ave_price.png)
 
 **Observations:**  
 - Some items have **very high prices**, which could impact the results.  
