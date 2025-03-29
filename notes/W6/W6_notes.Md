@@ -694,7 +694,7 @@ plt.show()
 # Finally - upload your brand new dataset
 
 Convert to prompts and upload to HuggingFace hub
-``python
+```python
 train_prompts = [item.prompt for item in train]
 train_prices = [item.price for item in train]
 test_prompts = [item.test_prompt() for item in test]
