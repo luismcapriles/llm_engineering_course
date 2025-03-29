@@ -581,4 +581,4 @@ plt.axis('equal')
 
 plt.show()
 ```
-
+![pie_chart](https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W6/img10_new_sample_dist_pie.png)
