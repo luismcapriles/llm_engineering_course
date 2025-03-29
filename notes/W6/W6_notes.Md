@@ -607,4 +607,4 @@ plt.title('Is there a simple correlation?')
 # Display the plot
 plt.show()
 ```
-
+![price_size](https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W6/img11_price_vs_item_descroption_size.png)
