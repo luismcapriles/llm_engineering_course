@@ -582,3 +582,29 @@ plt.axis('equal')
 plt.show()
 ```
 ![pie_chart](https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W6/img10_new_sample_dist_pie.png)
+
+# Dataset Curated!
+
+We've crafted an excellent dataset.  
+Let's do some final checks  
+
+### Looking some insights as data correclation!!
+```pyhton
+# How does the price vary with the character count of the prompt?
+
+sizes = [len(item.prompt) for item in sample]
+prices = [item.price for item in sample]
+
+# Create the scatter plot
+plt.figure(figsize=(15, 8))
+plt.scatter(sizes, prices, s=0.2, color="red")
+
+# Add labels and title
+plt.xlabel('Size')
+plt.ylabel('Price')
+plt.title('Is there a simple correlation?')
+
+# Display the plot
+plt.show()
+```
+
