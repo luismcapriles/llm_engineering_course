@@ -164,7 +164,7 @@ Since we're working with **Closed-Source models**, we must be mindful of **token
 **Tokenizer Used:** Meta-Llama-3.1-8B  
 - If an item doesn’t have sufficient characters, it is **rejected**  
 
-!(https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W6/img03_item_class.png)
+![item_class](https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W6/img03_item_class.png)
 ### **Why 180 Tokens?**  
 This is a **hyperparameter** – determined through **trial and error**.  
 - Needs to be **large enough** to capture useful price-related information.  
