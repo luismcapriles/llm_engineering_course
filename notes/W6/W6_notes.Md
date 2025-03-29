@@ -453,7 +453,7 @@ for i, v in enumerate(counts):
 # Display the chart
 plt.show()
 ```
-![categories]()
+![categories](https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W6/img07_items_per_categories.png)
 ---
 
 ## Objective  
