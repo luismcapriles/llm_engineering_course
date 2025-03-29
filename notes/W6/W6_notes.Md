@@ -563,5 +563,22 @@ plt.show()
 ```
 ![new_sample_dist](https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W6/img09_new_sample_dist.png)
 
+```python
+# Automotive still in the lead, but improved somewhat
+# For another perspective, let's look at a pie
 
+plt.figure(figsize=(12, 10))
+plt.pie(counts, labels=categories, autopct='%1.0f%%', startangle=90)
+
+# Add a circle at the center to create a donut chart (optional)
+centre_circle = plt.Circle((0,0), 0.70, fc='white')
+fig = plt.gcf()
+fig.gca().add_artist(centre_circle)
+plt.title('Categories')
+
+# Equal aspect ratio ensures that pie is drawn as a circle
+plt.axis('equal')  
+
+plt.show()
+```
 
