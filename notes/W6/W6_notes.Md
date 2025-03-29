@@ -146,6 +146,7 @@ plt.show()
 
 ## **4. Curating the Data**  
 
+## Data Curation Part 1
 ### Considerations:  
 - **Cost & Memory Factor:**  
   - The number of tokens affects training costs for Closed-Source models.  
@@ -313,4 +314,217 @@ plt.show()
 ## Sidenote
 If you like the variety of colors that matplotlib can use in its charts, you should bookmark this:
 https://matplotlib.org/stable/gallery/color/named_colors.html
+
+## Data Curation Part 2
+
+Today we'll extend our dataset to a greater coverage, and craft it into an excellent dataset for training.  
+Data curation can seem less exciting than other things we work on, but it's a crucial part of the LLM engineers' responsibility and an important craft to hone, so that you can build your own commercial solutions with high quality datasets.
+
+<detail><summary><strong>Important Note - read me first please </strong></summary>
+
+We are about to craft a massive dataset of 400,000 items covering multiple types of product. In Week 7 we will be using this data to train our own model. It's a pretty big dataset, and depending on the GPU you select, training could take 20+ hours. It will be really good fun, but it could cost a few dollars in compute units.
+
+As an alternative, if you want to keep things quick & low cost, you can work with a smaller dataset focused only on Home Appliances. You'll be able to cover the same learning points; the results will be good -- not quite as good as the full dataset, but still pretty amazing! If you'd prefer to do this, I've set up an alternative jupyter notebook in this folder called `lite.ipynb` that you should use in place of this one.
+
+Also, if you'd prefer, you can shortcut running all this data curation by downloading the pickle files that we save in the last cell. The pickle files are available here: https://drive.google.com/drive/folders/1f_IZGybvs9o0J5sb3xmtTEQB3BXllzrW
+</detail>
+
+```python
+# imports
+import os
+import random
+from dotenv import load_dotenv
+from huggingface_hub import login
+from datasets import load_dataset, Dataset, DatasetDict
+from items import Item
+from loaders import ItemLoader
+import matplotlib.pyplot as plt
+from collections import Counter, defaultdict
+import numpy as np
+import pickle
+
+# environment
+
+load_dotenv()
+os.environ['OPENAI_API_KEY'] = os.getenv('OPENAI_API_KEY', 'your-key-if-not-using-env')
+os.environ['ANTHROPIC_API_KEY'] = os.getenv('ANTHROPIC_API_KEY', 'your-key-if-not-using-env')
+os.environ['HF_TOKEN'] = os.getenv('HF_TOKEN', 'your-key-if-not-using-env')
+
+# Log in to HuggingFace
+
+hf_token = os.environ['HF_TOKEN']
+login(hf_token, add_to_git_credential=True)
+
+%matplotlib inline
+```
+## The ItemLoader code
+Look in loaders.py - there's some useful code to make life easier for us
+
+Here is your content formatted in **Markdown**:
+
+```markdown
+```python
+# Load one dataset at a time -> In this case only the Appliances
+items = ItemLoader("Appliances").load()
+```
+
+## Now to SCALE UP
+Let's look at all datasets of all the items that you might find in a large home retail store - electrical, electronic, office and related, but not clothes / beauty / books.
+
+```python
+dataset_names = [
+    "Automotive",
+    "Electronics",
+    "Office_Products",
+    "Tools_and_Home_Improvement",
+    "Cell_Phones_and_Accessories",
+    "Toys_and_Games",
+    "Appliances",
+    "Musical_Instruments",
+]
+```
+
+# Now, time for a coffee break!!  
+### By the way, I put the biggest datasets first.. it gets faster.
+
+```python
+items = []
+for dataset_name in dataset_names:
+    loader = ItemLoader(dataset_name)
+    items.extend(loader.load(workers=10))
+```
+
+```python
+print(f"A grand total of {len(items):,} items")
+```
+
+**Output:**  
+*A grand total of 2,811,408 items*
+
+---
+
+## NOTES: Recommendation of HW setting for handling heavy tasks like this.
+In most cases, for an **LLM engineer**, a machine with **50GB drive space and 16GB memory** is sufficient; you can survive on less, and more is nice but a luxury.  
+
+Personally, I'm an advocate for using **cloud servers** for GPUs. Some people like to invest in hefty GPU boxes for local training, and I get that—it's satisfying to run everything locally. But you could end up dropping **$4,000** for a high-end GPU box, and in **12 months** it might be obsolete.  
+
+I personally prefer to run on **the cloud**, and for **under $20 a month**, I get access to a lot of power.
+
+---
+
+## Plot the distribution of prices
+```python
+prices = [item.price for item in items]
+plt.figure(figsize=(15, 6))
+plt.title(f"Prices: Avg {sum(prices)/len(prices):,.1f} and highest {max(prices):,}\n")
+plt.xlabel('Price ($)')
+plt.ylabel('Count')
+plt.hist(prices, rwidth=0.7, color="blueviolet", bins=range(0, 1000, 10))
+plt.show()
+```
+
+---
+
+## Let’s count items per category  
+**Note:** The Python method `Counter()` is super useful to count things and classify them.
+
+```python
+from collections import Counter
+
+category_counts = Counter() # A special dictionary designed for counting things. It starts empty.
+for item in items:
+    category_counts[item.category] += 1
+
+categories = category_counts.keys()  # This creates a list of all the categories that were found.
+counts = [category_counts[category] for category in categories]  # List of counts for each category
+
+# Bar chart by category
+plt.figure(figsize=(15, 6))
+plt.bar(categories, counts, color="goldenrod")
+plt.title('How many in each category')
+plt.xlabel('Categories')
+plt.ylabel('Count')
+
+plt.xticks(rotation=30, ha='right')
+
+# Add value labels on top of each bar
+for i, v in enumerate(counts):
+    plt.text(i, v, f"{v:,}", ha='center', va='bottom')
+
+# Display the chart
+plt.show()
+```
+
+---
+
+## Objective  
+When we analyze the training data, we are looking for a **balanced dataset**.  
+
+If there is a **dominant subset**, we risk our model becoming **too specific** to that group and having **lower performance** in other subsets. This could lead to **memory issues**, where the model starts "forgetting" and performs worse on tasks related to other categories.  
+
+A **balanced dataset** ensures that the model generalizes well across all categories.  
+If one subset of data is significantly more frequent, the model may **overfit**, learning patterns that do not apply to less common subsets.  
+
+This **imbalance** can cause the model to **struggle with rare cases**, leading to poor performance in real-world applications.  
+
+### Problem:  
+In our scenario, **Automotive** is the most dominant category.  
+Let’s craft a dataset that is more **balanced in terms of prices**.  
+
+- Less heavily skewed to **cheap items**  
+- **Average price > $60**  
+- More **balanced categories** (fewer Automotive items)
+
+---
+
+## Creating a Balanced Dataset  
+
+```python
+from collections import defaultdict
+import numpy as np
+import random
+
+# Create a dictionary with a key for each price from $1 to $999 
+# Store items in lists based on their rounded price
+
+slots = defaultdict(list)  # A special dictionary that provides default values for non-existing keys
+for item in items:
+    slots[round(item.price)].append(item)
+```
+
+---
+
+```python
+# Create a dataset called "sample" which takes items more evenly across price ranges
+# Prioritizes non-Automotive items
+# Set random seed for reproducibility
+
+np.random.seed(42)
+random.seed(42)
+
+sample = []
+for i in range(1, 1000):
+    slot = slots[i]  # Get all items with a rounded price of 'i'
+    
+    # If the price is 240 or higher, include all items
+    if i >= 240:
+        sample.extend(slot)
+    
+    # If there are 1200 or fewer items at this price, include all
+    elif len(slot) <= 1200:
+        sample.extend(slot)
+        
+    # If there are more than 1200 items, prioritize non-Automotive items
+    else:
+        weights = np.array([1 if item.category == 'Automotive' else 5 for item in slot])
+        weights = weights / np.sum(weights)  # Normalize weights
+        selected_indices = np.random.choice(
+            len(slot), size=1200, replace=False, p=weights
+        )
+        selected = [slot[i] for i in selected_indices]
+        sample.extend(selected)
+
+print(f"There are {len(sample):,} items in the sample")
+```
+
 
