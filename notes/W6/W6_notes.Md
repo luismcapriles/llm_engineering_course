@@ -676,3 +676,57 @@ OEM AC Compressor w/A/C Repair Kit For Ford F150 F-150 V8 & Lincoln Mark LT 2007
 As one of the world's largest automotive parts suppliers, our parts are trusted every day by mechanics and vehicle owners worldwide. This A/C Compressor and Components Kit is manufactured and tested to the strictest OE standards for unparalleled performance. Built for trouble-free ownership and 100% visually inspected and quality tested, this A/C Compressor and Components Kit is backed by our 100% satisfaction guarantee. Guaranteed Exact Fit for easy installation 100% BRAND NEW, premium ISO/TS 16949 quality - tested to meet or exceed OEM specifications Engineered for superior durability, backed by industry-leading unlimited-mileage warranty Included in this K
 
 Price is $ **
+
+# Showing snapshot of the price distribution of the sample
+
+```python
+# Plot the distribution of prices in the first 250 test points
+
+prices = [float(item.price) for item in test[:250]]
+plt.figure(figsize=(15, 6))
+plt.title(f"Avg {sum(prices)/len(prices):.2f} and highest {max(prices):,.2f}\n")
+plt.xlabel('Price ($)')
+plt.ylabel('Count')
+plt.hist(prices, rwidth=0.7, color="darkblue", bins=range(0, 1000, 10))
+plt.show()
+```
+
+# Finally - upload your brand new dataset
+
+Convert to prompts and upload to HuggingFace hub
+``python
+train_prompts = [item.prompt for item in train]
+train_prices = [item.price for item in train]
+test_prompts = [item.test_prompt() for item in test]
+test_prices = [item.price for item in test]
+```
+
+```python
+# Create a Dataset from the lists
+
+train_dataset = Dataset.from_dict({"text": train_prompts, "price": train_prices})
+test_dataset = Dataset.from_dict({"text": test_prompts, "price": test_prices})
+dataset = DatasetDict({
+    "train": train_dataset,
+    "test": test_dataset
+})
+```
+
+```python
+# Uncomment these lines if you're ready to push to the hub, and replace my name with your HF username
+
+HF_USER = "USERNAME"
+DATASET_NAME = f"{HF_USER}/pricer-data"
+dataset.push_to_hub(DATASET_NAME, private=True)
+```
+
+```python
+# One more thing!
+# Let's pickle the training and test dataset so we don't have to execute all this code next time!
+
+with open('train.pkl', 'wb') as file:
+    pickle.dump(train, file)
+
+with open('test.pkl', 'wb') as file:
+    pickle.dump(test, file)
+```
