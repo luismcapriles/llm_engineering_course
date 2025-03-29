@@ -531,3 +531,35 @@ plt.hist(prices, rwidth=0.7, color="darkblue", bins=range(0, 1000, 10))
 plt.show()
 ```
 ![sample_dist](https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W6/img08_sample_dist.png)
+
+```python
+# OK, we did well in terms of raising the average price and having a smooth-ish population of prices
+# Let's see the categories
+
+category_counts = Counter()
+for item in sample:
+    category_counts[item.category]+=1
+
+categories = category_counts.keys()
+counts = [category_counts[category] for category in categories]
+
+# Create bar chart
+plt.figure(figsize=(15, 6))
+plt.bar(categories, counts, color="lightgreen")
+
+# Customize the chart
+plt.title('How many in each category')
+plt.xlabel('Categories')
+plt.ylabel('Count')
+
+plt.xticks(rotation=30, ha='right')
+
+# Add value labels on top of each bar
+for i, v in enumerate(counts):
+    plt.text(i, v, f"{v:,}", ha='center', va='bottom')
+
+# Display the chart
+plt.show()
+```
+
+
