@@ -730,3 +730,4 @@ with open('train.pkl', 'wb') as file:
 with open('test.pkl', 'wb') as file:
     pickle.dump(test, file)
 ```
+![snap](https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W6/img12_snapshot_sample_250_items_training.png)
