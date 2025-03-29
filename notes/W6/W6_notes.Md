@@ -530,4 +530,4 @@ plt.ylabel('Count')
 plt.hist(prices, rwidth=0.7, color="darkblue", bins=range(0, 1000, 10))
 plt.show()
 ```
-
+![sample_dist](https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W6/img08_sample_dist.png)
