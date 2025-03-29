@@ -589,7 +589,7 @@ We've crafted an excellent dataset.
 Let's do some final checks  
 
 ### Looking some insights as data correclation!!
-```pyhton
+```python
 # How does the price vary with the character count of the prompt?
 
 sizes = [len(item.prompt) for item in sample]
