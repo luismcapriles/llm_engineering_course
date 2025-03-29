@@ -516,5 +516,18 @@ for i in range(1, 1000):
 
 print(f"There are {len(sample):,} items in the sample")
 ```
+**Output:**  
+*There are 408,635 items in the sample*
 
+```python
+# Plot the distribution of prices in sample
+
+prices = [float(item.price) for item in sample]
+plt.figure(figsize=(15, 10))
+plt.title(f"Avg {sum(prices)/len(prices):.2f} and highest {max(prices):,.2f}\n")
+plt.xlabel('Price ($)')
+plt.ylabel('Count')
+plt.hist(prices, rwidth=0.7, color="darkblue", bins=range(0, 1000, 10))
+plt.show()
+```
 
