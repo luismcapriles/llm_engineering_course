@@ -1,6 +1,3 @@
-Here is your text converted into Markdown format:  
-
-```markdown
 # Training a Model  
 
 ## Requires Data  
@@ -216,4 +213,4 @@ This is a **hyperparameter** – determined through **trial and error**.
 > "Hey Luis - `CEILING_CHARS` was meant to improve processing efficiency, not to truncate important data. If it's cutting meaningful content, that's a bug! A quick fix: triple `CEILING_CHARS`. The model should handle tokenized fragments, but real truncation affecting `MAX_TOKENS` is a problem. Let me know!"  
 
 </details>
-```  
+ 
