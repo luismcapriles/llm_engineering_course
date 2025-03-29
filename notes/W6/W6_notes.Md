@@ -561,5 +561,7 @@ for i, v in enumerate(counts):
 # Display the chart
 plt.show()
 ```
+![new_sample_dist]()
+
 
 
