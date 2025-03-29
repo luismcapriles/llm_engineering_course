@@ -309,3 +309,8 @@ plt.hist(prices, rwidth=0.7, color="purple", bins=range(0, 1000, 10))
 plt.show()
 ```
 ![new_price_dist](https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W6/img05_new_item_ave_price_after_180_Token.png)
+
+## Sidenote
+If you like the variety of colors that matplotlib can use in its charts, you should bookmark this:
+https://matplotlib.org/stable/gallery/color/named_colors.html
+
