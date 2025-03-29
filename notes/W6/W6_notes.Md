@@ -175,7 +175,7 @@ This is a **hyperparameter** – determined through **trial and error**.
 
 ---
 
-# **4.1. A Potential Issue in the `Item` Code**  
+###  **4.1. A Potential Issue in the `Item` Code**  
 
 <details>
 <summary><strong>Issue: Truncated Words and Sentences</strong></summary>
