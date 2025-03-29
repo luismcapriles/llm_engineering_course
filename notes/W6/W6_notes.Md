@@ -124,6 +124,7 @@ plt.ylabel('Count')
 plt.hist(lengths, rwidth=0.7, color="lightblue", bins=range(0, 6000, 100))
 plt.show()
 ```
+!(https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W6/img01_item_detail_lenght.png)
 
 ### Distribution of Prices  
 
@@ -136,6 +137,7 @@ plt.ylabel('Count')
 plt.hist(prices, rwidth=0.7, color="orange", bins=range(0, 1000, 10))
 plt.show()
 ```
+!(https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W6/img02_item_ave_price.png)
 
 **Observations:**  
 - Some items have **very high prices**, which could impact the results.  
@@ -162,6 +164,7 @@ Since we're working with **Closed-Source models**, we must be mindful of **token
 **Tokenizer Used:** Meta-Llama-3.1-8B  
 - If an item doesn’t have sufficient characters, it is **rejected**  
 
+!(https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W6/img03_item_class.png)
 ### **Why 180 Tokens?**  
 This is a **hyperparameter** – determined through **trial and error**.  
 - Needs to be **large enough** to capture useful price-related information.  
