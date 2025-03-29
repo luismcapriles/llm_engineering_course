@@ -175,7 +175,7 @@ This is a **hyperparameter** – determined through **trial and error**.
 
 ---
 
-## **5. A Potential Issue in the `Item` Code**  
+# **4.1. A Potential Issue in the `Item` Code**  
 
 <details>
 <summary><strong>Issue: Truncated Words and Sentences</strong></summary>
@@ -216,4 +216,94 @@ This is a **hyperparameter** – determined through **trial and error**.
 > "Hey Luis - `CEILING_CHARS` was meant to improve processing efficiency, not to truncate important data. If it's cutting meaningful content, that's a bug! A quick fix: triple `CEILING_CHARS`. The model should handle tokenized fragments, but real truncation affecting `MAX_TOKENS` is a problem. Let me know!"  
 
 </details>
- 
+
+## Creating Item Objects for Each Data Point with a Price
+
+```python
+# Create an Item object for each with a price
+items = []
+for datapoint in dataset:
+    try:
+        price = float(datapoint["price"])
+        if price > 0:
+            item = Item(datapoint, price) # creating an Item 
+            if item.include:
+                items.append(item)
+    except ValueError as e:
+        pass
+
+print(f"There are {len(items):,} items")
+```
+
+**Output:**
+```
+There are 29,191 items
+```
+
+### Looking at the First Item
+```python
+# Look at the first item
+items[0]
+```
+**Output:**
+```
+<WD12X10327 Rack Roller and stud assembly Kit (4 Pack) by AMI PARTS Replaces AP4980629 PS3486910 1811003 = $8.99>
+```
+
+### Investigating the Prompt Used During Training
+
+```python
+# Investigate the prompt that will be used during training - the model learns to complete this
+print(items[1].prompt)
+```
+**Output:**
+```
+How much does this cost to the nearest dollar?
+
+Door Pivot Block - Compatible Kenmore KitchenAid Maytag Whirlpool Refrigerator - Replaces - Quick DIY Repair Solution
+Pivot Block For Vernicle Mullion Strip On Door - A high-quality exact equivalent for part numbers and Compatibility with major brands - Door Guide is compatible with Whirlpool, Amana, Dacor, Gaggenau, Hardwick, Jenn-Air, Kenmore, KitchenAid, and Maytag. Quick DIY repair - Refrigerator Door Guide Pivot Block Replacement will help if your appliance door doesn't open or close. Wear work gloves to protect your hands during the repair process. Attentive support - If you are uncertain about whether the block fits your refrigerator, we will help. We generally put forth a valiant effort to guarantee you are totally
+
+Price is $17.00
+```
+
+### Investigating the Prompt Used During Testing
+
+```python
+# Investigate the prompt that will be used during testing - the model has to complete this
+print(items[0].test_prompt())
+```
+**Output:**
+```
+How much does this cost to the nearest dollar?
+
+Rack Roller and stud assembly Kit (4 Pack) by AMI PARTS Replaces
+PARTS NUMBER The dishwasher top rack wheels and stud assembly Kit （4 pcs） SCOPE OF APPLICATION The dishwasher works with most top name brands,If you are not sure if part is correct, ask us in Customer questions & answers section or visiting the AMI PARTS storefront.We’re happy to help ensure you select the correct part for your Rack Roller and stud REPLACES PART FIXES SYMPTOMS Door won’t close | Not cleaning dishes properly | Noisy | Door latch failure QUALITY WARRANTY The replacement part is made from durable high quality material and well-tested by manufacturer.For any reason you’re not satisfied,you can ask for a replacement or full refund Brand Name AMI PARTS, Model
+
+Price is $
+```
+
+## Visualizing Token Distribution After Filtering
+
+```python
+# Plot the distribution of token counts
+tokens = [item.token_count for item in items]
+plt.figure(figsize=(15, 6))
+plt.title(f"Token counts: Avg {sum(tokens)/len(tokens):,.1f} and highest {max(tokens):,}\n")
+plt.xlabel('Length (tokens)')
+plt.ylabel('Count')
+plt.hist(tokens, rwidth=0.7, color="green", bins=range(0, 300, 10))
+plt.show()
+```
+
+## Analyzing the New Price Distribution
+
+```python
+# Plot the distribution of prices
+prices = [item.price for item in items]
+plt.figure(figsize=(15, 6))
+plt.title(f"Prices: Avg {sum(prices)/len(prices):,.1f} and highest {max(prices):,}\n")
+plt.xlabel('Price ($)')
+plt.ylabel('Count')
+plt.hist(prices, rwidth=0.7, color="purple", bins=range(0, 1000, 10))
+plt.show()
+```
