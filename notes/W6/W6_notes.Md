@@ -294,6 +294,7 @@ plt.ylabel('Count')
 plt.hist(tokens, rwidth=0.7, color="green", bins=range(0, 300, 10))
 plt.show()
 ```
+![token_length_dist](https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W6/img04_token_length_dist.png)
 
 ## Analyzing the New Price Distribution
 
@@ -307,3 +308,4 @@ plt.ylabel('Count')
 plt.hist(prices, rwidth=0.7, color="purple", bins=range(0, 1000, 10))
 plt.show()
 ```
+![new_price_dist](https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W6/img05_new_item_ave_price_after_180_Token.png)
