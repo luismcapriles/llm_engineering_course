@@ -458,22 +458,10 @@ plt.show()
 ---
 
 ## Objective  
-When we analyze the training data, we are looking for a **balanced dataset**.  
+When we analyze the training data, we are looking for a balanced dataset. If there is a subset that prevails, we risk our Model to be too specific data driven in that group and have lower performance in other subsets. This could lead into “Memory Issues” where model start “forgetting” and performance decrease in task related to other categories. 
+A balanced dataset ensures that the model generalizes well across all categories. If one subset of data is significantly more frequent, the model may overfit to it, learning patterns that do not apply to less common subsets. This imbalance can cause the model to struggle with rare cases, leading to poor performance in real-world applications. The term "memory issues" refers to a phenomenon where the model prioritizes frequently seen data and gradually performs worse on less frequent categories, resembling a form of "catastrophic forgetting" seen in machine learning.
 
-If there is a **dominant subset**, we risk our model becoming **too specific** to that group and having **lower performance** in other subsets. This could lead to **memory issues**, where the model starts "forgetting" and performs worse on tasks related to other categories.  
-
-A **balanced dataset** ensures that the model generalizes well across all categories.  
-If one subset of data is significantly more frequent, the model may **overfit**, learning patterns that do not apply to less common subsets.  
-
-This **imbalance** can cause the model to **struggle with rare cases**, leading to poor performance in real-world applications.  
-
-### Problem:  
-In our scenario, **Automotive** is the most dominant category.  
-Let’s craft a dataset that is more **balanced in terms of prices**.  
-
-- Less heavily skewed to **cheap items**  
-- **Average price > $60**  
-- More **balanced categories** (fewer Automotive items)
+In our scenario, Automotive is the most dominant categories. Let’s craft a dataset which is more balanced in terms of prices. Less heavily scewed to cheap items, with an average that's higher than $60. Try to balance out the categories - fewer Automotive items.
 
 ---
 
