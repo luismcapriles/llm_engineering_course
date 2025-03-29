@@ -608,3 +608,40 @@ plt.title('Is there a simple correlation?')
 plt.show()
 ```
 ![price_size](https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W6/img11_price_vs_item_descroption_size.png)
+
+There is no correlation between the size of the item description and the price. 
+
+```python
+# Let's check the last 10 tokens associated to the text prompt
+def report(item):
+    prompt = item.prompt
+    tokens = Item.tokenizer.encode(item.prompt)
+    print(prompt)
+    print(tokens[-10:])
+    print(Item.tokenizer.batch_decode(tokens[-10:]))
+```
+```python
+report(sample[398000])
+```
+**Output:**
+**How much does this cost to the nearest dollar?
+
+MonoRS Coilovers Lowering Kit Made For Scion FRS Fully Adjustable, Set of 4
+MonoRS Coilover damper kit by Godspeed Project are intermediate suspension upgrade setup for daily and Sunday club racing. Lowering your car with improved springs over factory and paired with Mono-tubo shocks with valving that allows 32 levels of rebound adjustment to improve handling without sacrifice comfort. Ride height can easily be adjusted by twisting the lower mount bracket. In order to keep weight gain at the minimum, most of attachments and accessories are CNC machined from billet aluminum. Koyo bearings are used when camber plate top mount is applicable depends on car models. To assure that our customers are getting high quality products, MonoRS coilovers are covered by 12 months limited warranty by the manufacturer from
+
+Price is $765.00
+[279, 14290, 505, 271, 7117, 374, 400, 22240, 13, 410]
+[' the', ' manufacturer', ' from', '\n\n', 'Price', ' is', ' $', '765', '.', '00']**
+
+## Observation
+An interesting thing about the Llama tokenizer is that **every number** from *1 to 999* gets mapped to **1 token**,same for gpt-4o.
+
+This is not true of **qwen2**, **gemma** and **phi3**, which all map *individual digits* to *tokens*. This does turn out to be a bit useful for our project, although it's not an essential requirement.
+
+# Finally
+
+It's time to break down our data into a training, test and validation dataset.
+
+It's typical to use **5%-10%** of your data for **testing purposes**, but 
+
+We actually we have far more than we need at this point. We'll take **400,000** points for training, and we'll reserve **2,000** for **testing**, although we won't use all of them.
