@@ -629,9 +629,9 @@ report(sample[398000])
 MonoRS Coilovers Lowering Kit Made For Scion FRS Fully Adjustable, Set of 4
 MonoRS Coilover damper kit by Godspeed Project are intermediate suspension upgrade setup for daily and Sunday club racing. Lowering your car with improved springs over factory and paired with Mono-tubo shocks with valving that allows 32 levels of rebound adjustment to improve handling without sacrifice comfort. Ride height can easily be adjusted by twisting the lower mount bracket. In order to keep weight gain at the minimum, most of attachments and accessories are CNC machined from billet aluminum. Koyo bearings are used when camber plate top mount is applicable depends on car models. To assure that our customers are getting high quality products, MonoRS coilovers are covered by 12 months limited warranty by the manufacturer from
 
-Price is $765.00
-[279, 14290, 505, 271, 7117, 374, 400, 22240, 13, 410]
-[' the', ' manufacturer', ' from', '\n\n', 'Price', ' is', ' $', '765', '.', '00']**
+Price is $765.00  
+[279, 14290, 505, 271, 7117, 374, 400, 22240, 13, 410]  
+[' the', ' manufacturer', ' from', '\n\n', 'Price', ' is', ' $', '765', '.', '00']**  
 
 ## Observation
 An interesting thing about the Llama tokenizer is that **every number** from *1 to 999* gets mapped to **1 token**,same for gpt-4o.
