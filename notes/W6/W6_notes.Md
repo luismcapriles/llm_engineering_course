@@ -1077,4 +1077,77 @@ write_jsonl(fine_tune_validation, "fine_tune_validation.jsonl")
 ```
 This is how the file looks like
 
-![]()
+![training_file_jsonl_format](https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W6/img16_training_file_jsonl.png)
+
+### step 2: Loading the training and validation file to OpenAi
+
+```python
+#THIS IS HOW WE UPLOAD THE DATASET TO OPENAI
+with open("fine_tune_train.jsonl", "rb") as f: #notice "rb" ->>read binary we pass the data in binary 
+    train_file = openai.files.create(file=f, purpose="fine-tune") 
+
+with open("fine_tune_validation.jsonl", "rb") as f:
+    validation_file = openai.files.create(file=f, purpose="fine-tune")
+```
+
+```python
+#to check the loading status
+train_file
+```
+Notice the Status **"processed"**
+
+`FileObject(id='file-1Mzc4RS6Tn9SdDtLqMncjm', bytes=188742, created_at=1743079012, filename='fine_tune_train.jsonl', object='file', purpose='fine-tune', status='processed', status_details=None, expires_at=None)`
+
+```python
+validation_file
+```
+`FileObject(id='file-9ThDorj9CEn9YRSRd6y4eq', bytes=47085, created_at=1743079051, filename='fine_tune_validation.jsonl', object='file', purpose='fine-tune', status='processed', status_details=None, expires_at=None)
+`
+### Step 3: Monitoring Training runs 
+
+Weights and Biases -  free platform for monitoring training runs.
+Weights and Biases is integrated with OpenAI for fine-tuning.
+
+First set up your weights & biases free account at:
+
+https://wandb.ai
+
+From the Avatar >> Settings menu, near the bottom, you can create an API key.
+
+Then visit the OpenAI dashboard at:
+
+https://platform.openai.com/account/organization
+
+In the integrations section, you can add your Weights & Biases API key.
+
+Once done:
+
+We give a name to this new trained Model: {"project": "gpt-pricer"}
+```python
+wandb_integration = {"type": "wandb", "wandb": {"project": "gpt-pricer"}}
+```
+We can retreive the training file id by 
+```python
+train_file.id
+```
+`'file-1Mzc4RS6Tn9SdDtLqMncjm'`
+
+Now let's fine-tune the model !!
+
+> :warning: **Warning:** This step cost $ money. It depends on the amount of data we are using. 
+
+```python
+openai.fine_tuning.jobs.create(
+    training_file=train_file.id, #this is the id of the file sent to OpenAi
+    validation_file=validation_file.id, #same for the validation file
+    model="gpt-4o-mini-2024-07-18",
+    seed=42,
+    hyperparameters={"n_epochs": 1}, # optional #"epoch" refers to one complete pass through the entire training dataset
+    integrations = [wandb_integration], #optional 
+    suffix="pricer" #optional
+)
+```
+Once it's done, we received an email from OpenAi
+
+
+
