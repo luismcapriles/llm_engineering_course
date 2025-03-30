@@ -1078,3 +1078,28 @@ write_jsonl(fine_tune_validation, "fine_tune_validation.jsonl")
 This is how the file looks like
 
 ![training_file_jsonl_format](https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W6/img16_training_file_jsonl.png)
+
+### step 2: Loading the training and validation file to OpenAi
+
+```python
+#THIS IS HOW WE UPLOAD THE DATASET TO OPENAI
+with open("fine_tune_train.jsonl", "rb") as f: #notice "rb" ->>read binary we pass the data in binary 
+    train_file = openai.files.create(file=f, purpose="fine-tune") 
+
+with open("fine_tune_validation.jsonl", "rb") as f:
+    validation_file = openai.files.create(file=f, purpose="fine-tune")
+```
+
+```python
+#to check the loading status
+train_file
+```
+Notice the Status **"processed"**
+
+`FileObject(id='file-1Mzc4RS6Tn9SdDtLqMncjm', bytes=188742, created_at=1743079012, filename='fine_tune_train.jsonl', object='file', purpose='fine-tune', status='processed', status_details=None, expires_at=None)`
+
+```python
+validation_file
+```
+`FileObject(id='file-9ThDorj9CEn9YRSRd6y4eq', bytes=47085, created_at=1743079051, filename='fine_tune_validation.jsonl', object='file', purpose='fine-tune', status='processed', status_details=None, expires_at=None)
+`
