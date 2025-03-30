@@ -874,3 +874,5 @@ This code helps evaluate how good a price prediction model is by:
 3. Visualizing all predictions in a chart
 4. Calculating overall performance metrics
 </details>
+
+* Check Week 6 Day 3 lab for reviewing the ML examples 
