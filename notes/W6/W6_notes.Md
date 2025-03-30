@@ -945,13 +945,13 @@ def messages_for(item):
 # Try this out
 messages_for(test[0])
 ```
->[NOte:]
-> # A utility function to extract the price from a string
->
+>[Note:]
+> ### A utility function to extract the price from a string
+>```python
 > def get_price(s):
 >     s = s.replace('$','').replace(',','')
 >    match = re.search(r"[-+]?\d*\.\d+|\d+", s)
 >    return float(match.group()) if match else 0
-
+>```
 > get_price("The price is roughly $99.99 because blah blah")
 > 99.99
