@@ -953,5 +953,8 @@ messages_for(test[0])
 >    match = re.search(r"[-+]?\d*\.\d+|\d+", s)
 >    return float(match.group()) if match else 0
 >```
+> ```python
 > get_price("The price is roughly $99.99 because blah blah")
+> ```
 > 99.99
+> ``
