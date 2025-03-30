@@ -1024,4 +1024,57 @@ fine_tune_validation = train[200:250]
 In summary, epochs are crucial to the model training process, as they dictate how many times the algorithm learns from the data
 ></details>
 
+### Step 1
+Prepare our data for fine-tuning in JSONL (JSON Lines) format and upload to OpenAI
 
+```python
+# First let's work on a good prompt for a Frontier model
+# Notice that I'm removing the " to the nearest dollar"
+# When we train our own models, we'll need to make the problem as easy as possible, 
+# but a Frontier model needs no such simplification.
+
+def messages_for(item):
+    system_message = "You estimate prices of items. Reply only with the price, no explanation"
+    user_prompt = item.test_prompt().replace(" to the nearest dollar","").replace("\n\nPrice is $","")
+    return [
+        {"role": "system", "content": system_message},
+        {"role": "user", "content": user_prompt},
+        {"role": "assistant", "content": f"Price is ${item.price:.2f}"}
+    ]
+```
+```python
+#you can test this prompt with
+messages_for(train[0])
+```
+
+Convert the items into a list of json objects - a "jsonl" string
+```python
+# Each row represents a message in the form:
+# {"messages" : [{"role": "system", "content": "You estimate prices...
+
+
+def make_jsonl(items):
+    result = ""
+    for item in items:
+        messages = messages_for(item)
+        messages_str = json.dumps(messages) # we convert the messages to string
+        result += '{"messages": ' + messages_str +'}\n' #we put it in jsonl format
+    return result.strip() #removing any space or newlines cleaner output
+```
+
+Convert the items into jsonl and write them to a file
+```python
+def write_jsonl(items, filename):
+    with open(filename, "w") as f:
+        jsonl = make_jsonl(items)
+        f.write(jsonl)
+```
+we save the train and validation data into two separate files to be oploaded to OpenAi
+```python
+write_jsonl(fine_tune_train, "fine_tune_train.jsonl")
+
+write_jsonl(fine_tune_validation, "fine_tune_validation.jsonl")
+```
+This is how the file looks like
+
+![]()
