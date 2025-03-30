@@ -1151,6 +1151,6 @@ openai.fine_tuning.jobs.create(
 FineTuningJob(id='ftjob-SzYMjZoOvgQjuDjlTcNZdmEU', created_at=1743085728, error=Error(code=None, message=None, param=None), fine_tuned_model=None, finished_at=None, hyperparameters=Hyperparameters(batch_size='auto', learning_rate_multiplier='auto', n_epochs=1), model='gpt-4o-mini-2024-07-18', object='fine_tuning.job', organization_id='org-XSnZxwnBHejH7h1JSCKFejEl', result_files=[], seed=42, status='validating_files', trained_tokens=None, training_file='file-1Mzc4RS6Tn9SdDtLqMncjm', validation_file='file-9ThDorj9CEn9YRSRd6y4eq', estimated_finish=None, integrations=[FineTuningJobWandbIntegrationObject(type='wandb', wandb=FineTuningJobWandbIntegration(project='gpt-pricer', entity=None, name=None, tags=None, run_id='ftjob-SzYMjZoOvgQjuDjlTcNZdmEU'))], method=Method(dpo=None, supervised=MethodSupervised(hyperparameters=MethodSupervisedHyperparameters(batch_size='auto', learning_rate_multiplier='auto', n_epochs=1)), type='supervised'), user_provided_suffix='pricer', metadata=None)
 `
 Once it's done, we received an email from OpenAi
-![openai_finetune_confirmation]()
+![openai_finetune_confirmation](https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W6/img17_openai_model_trained_confirmation.png)
 
 
