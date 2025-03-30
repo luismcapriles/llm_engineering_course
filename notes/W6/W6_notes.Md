@@ -1014,7 +1014,7 @@ fine_tune_validation = train[200:250]
 > :memo: **Note:Epoch **
 > <details><summary><strong> Epoch meaning </strong></summary>
 > In the context of machine learning and training models, an "epoch" refers to one complete pass through the entire training dataset. During this pass, the model learns from the data and updates its weights based on the error it encounters.
-
+>
 > Here’s a breakdown of the concept:
 > 	1. Complete Data Pass: An epoch represents how many times the learning algorithm has seen the entire training dataset.
 > 	2. Weight Updates: After each epoch, the model typically adjusts its internal parameters (weights) based on how well it performed on the data during that epoch.
