@@ -1001,3 +1001,27 @@ def claude_3_point_5_sonnet(item):
 Tester.test(claude_3_point_5_sonnet, test)
 ```
 ![claude_no_training](https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W6/img15_testing_claude_3_5_sonet_no_training.png)
+
+---
+## 2. Training/ Fine-tunning Frontier Models:
+
+OpenAI recommends fine-tuning with populations of *50-100* examples
+But as our examples are very small, I'm suggesting we go with 200 examples (and 1 *epoch*)
+```python
+fine_tune_train = train[:200]
+fine_tune_validation = train[200:250]
+```
+> :memo: **Note:Epoch **
+> <detail><summary><strong> Epoch meaning </strong></summary>
+> In the context of machine learning and training models, an "epoch" refers to one complete pass through the entire training dataset. During this pass, the model learns from the data and updates its weights based on the error it encounters.
+
+> Here’s a breakdown of the concept:
+> 	1. Complete Data Pass: An epoch represents how many times the learning algorithm has seen the entire training dataset.
+> 	2. Weight Updates: After each epoch, the model typically adjusts its internal parameters (weights) based on how well it performed on the data during that epoch.
+>  	3. Iterations and Batches: Often, data is processed in smaller batches rather than all at once. Even if processing in batches (mini-batch gradient descent), an epoch is still counted as one complete pass through the entire dataset.
+>  	4. Multiple Epochs: Training usually involves multiple epochs, allowing the model to gradually converge towards an optimal set of weights.
+>  	5. Performance Monitoring: At the end of each epoch, model performance is often evaluated (e.g., on a validation set) to check for improvements or to monitor for overfitting.
+In summary, epochs are crucial to the model training process, as they dictate how many times the algorithm learns from the data
+></detail>
+
+
