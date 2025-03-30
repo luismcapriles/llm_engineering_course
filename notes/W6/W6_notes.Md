@@ -746,3 +746,39 @@ In this section we explored different traditional ML model vs LLM model for our 
 * word2vec & SVR (Support Vector Regression)
 
 ![traditional_ML](https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W6/img13_traditional_ML.png)
+
+---
+## Training Step1:
+### Loading the pkl files
+
+Let's avoid curating all our data again! Load in the pickle files
+
+If you didn't already create these, you can also download them from my google drive
+https://drive.google.com/drive/folders/1f_IZGybvs9o0J5sb3xmtTEQB3BXllzrW
+
+But note that the files are quite large - you might need to get a coffee!
+
+```python
+with open('train.pkl', 'rb') as file:
+    train = pickle.load(file)
+
+with open('test.pkl', 'rb') as file:
+    test = pickle.load(file)
+```
+
+![Note:]  
+
+To test the model You write a function of this form:
+
+```
+def my_prediction_function(item):
+    # my code here
+    return my_estimate
+```
+
+And then you call:
+
+`Tester.test(my_prediction_function)`
+
+
+To evaluate your model.
