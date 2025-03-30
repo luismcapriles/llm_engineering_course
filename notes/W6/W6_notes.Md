@@ -957,3 +957,23 @@ messages_for(test[0])
 > get_price("The price is roughly $99.99 because blah blah")
 > ```
 > `99.99`
+
+### Testing OpenAi gpt-4o-mini
+```python
+# The function for gpt-4o-mini
+
+def gpt_4o_mini(item):
+    response = openai.chat.completions.create(
+        model="gpt-4o-mini", 
+        messages=messages_for(item),
+        seed=42,
+        max_tokens=5
+    )
+    reply = response.choices[0].message.content
+    return get_price(reply)
+```
+```python
+#passing the function and the test data (trying the best without been trained)
+Tester.test(gpt_4o_mini, test)
+```
+
