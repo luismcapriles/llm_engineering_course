@@ -744,3 +744,5 @@ In this section we explored different traditional ML model vs LLM model for our 
 * Bag of words & Linear Regression
 * word2vec & Random Forest
 * word2vec & SVR (Support Vector Regression)
+
+![traditional_ML]()
