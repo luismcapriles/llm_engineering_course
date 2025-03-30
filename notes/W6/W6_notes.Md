@@ -1198,7 +1198,7 @@ Here is where we ->> **Evaluate the results**, **tweak** and **repeat** !!
 
 # Summary and Takeaways Fine-tunning a Frontier Models
 
-We have to keep in mind Frontier Models alrady have been training with billion or trillions of parameters
+We have to keep in mind Frontier Models have been trained with billion or trillions of parameters
 There might be scenarios were fine-tunning is useful and some others that's not. 
 
 ## Key Objectives of Fine-Tuning for Frontier models
