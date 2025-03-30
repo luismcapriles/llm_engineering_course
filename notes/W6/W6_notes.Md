@@ -967,13 +967,114 @@ def gpt_4o_mini(item):
         model="gpt-4o-mini", 
         messages=messages_for(item),
         seed=42,
-        max_tokens=5
+        max_tokens=5 #limiting the #of tokens in the output safeguard $$
     )
     reply = response.choices[0].message.content
     return get_price(reply)
 ```
 ```python
 #passing the function and the test data (trying the best without been trained)
+#this cost some $ cents 
 Tester.test(gpt_4o_mini, test)
 ```
+![gpt_4o_mini_no_training](https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W6/img14_testing_gpt4o_no_training.png)
 
+### Testing Claude 3.5 Sonet 
+
+```python
+def claude_3_point_5_sonnet(item):
+    messages = messages_for(item)
+    system_message = messages[0]['content'] # here we are stracting the system messages from the dic of items
+    messages = messages[1:] # here we are passing the rest of items without the systems message
+    response = claude.messages.create(
+        model="claude-3-5-sonnet-20240620",
+        max_tokens=5,
+        system=system_message,
+        messages=messages
+    )
+    reply = response.content[0].text
+    return get_price(reply)
+```
+```python
+# The function for Claude 3.5 Sonnet
+# It also cost me about 1-2 cents to run this (pricing may vary by region)
+Tester.test(claude_3_point_5_sonnet, test)
+```
+![claude_no_training](https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W6/img15_testing_claude_3_5_sonet_no_training.png)
+
+---
+## 2. Training/ Fine-tunning Frontier Models:
+
+OpenAI recommends fine-tuning with populations of *50-100* examples
+But as our examples are very small, I'm suggesting we go with 200 examples (and 1 *epoch*)
+```python
+fine_tune_train = train[:200]
+fine_tune_validation = train[200:250]
+```
+> :memo: **Note:Epoch **
+> <details><summary><strong> Epoch meaning </strong></summary>
+> In the context of machine learning and training models, an "epoch" refers to one complete pass through the entire training dataset. During this pass, the model learns from the data and updates its weights based on the error it encounters.
+>
+> Here’s a breakdown of the concept:
+> 	1. Complete Data Pass: An epoch represents how many times the learning algorithm has seen the entire training dataset.
+> 	2. Weight Updates: After each epoch, the model typically adjusts its internal parameters (weights) based on how well it performed on the data during that epoch.
+>  	3. Iterations and Batches: Often, data is processed in smaller batches rather than all at once. Even if processing in batches (mini-batch gradient descent), an epoch is still counted as one complete pass through the entire dataset.
+>  	4. Multiple Epochs: Training usually involves multiple epochs, allowing the model to gradually converge towards an optimal set of weights.
+>  	5. Performance Monitoring: At the end of each epoch, model performance is often evaluated (e.g., on a validation set) to check for improvements or to monitor for overfitting.
+In summary, epochs are crucial to the model training process, as they dictate how many times the algorithm learns from the data
+></details>
+
+### Step 1
+Prepare our data for fine-tuning in JSONL (JSON Lines) format and upload to OpenAI
+
+```python
+# First let's work on a good prompt for a Frontier model
+# Notice that I'm removing the " to the nearest dollar"
+# When we train our own models, we'll need to make the problem as easy as possible, 
+# but a Frontier model needs no such simplification.
+
+def messages_for(item):
+    system_message = "You estimate prices of items. Reply only with the price, no explanation"
+    user_prompt = item.test_prompt().replace(" to the nearest dollar","").replace("\n\nPrice is $","")
+    return [
+        {"role": "system", "content": system_message},
+        {"role": "user", "content": user_prompt},
+        {"role": "assistant", "content": f"Price is ${item.price:.2f}"}
+    ]
+```
+```python
+#you can test this prompt with
+messages_for(train[0])
+```
+
+Convert the items into a list of json objects - a "jsonl" string
+```python
+# Each row represents a message in the form:
+# {"messages" : [{"role": "system", "content": "You estimate prices...
+
+
+def make_jsonl(items):
+    result = ""
+    for item in items:
+        messages = messages_for(item)
+        messages_str = json.dumps(messages) # we convert the messages to string
+        result += '{"messages": ' + messages_str +'}\n' #we put it in jsonl format
+    return result.strip() #removing any space or newlines cleaner output
+```
+
+Convert the items into jsonl and write them to a file
+```python
+def write_jsonl(items, filename):
+    with open(filename, "w") as f:
+        jsonl = make_jsonl(items)
+        f.write(jsonl)
+```
+we save the train and validation data into two separate files to be oploaded to OpenAi
+```python
+write_jsonl(fine_tune_train, "fine_tune_train.jsonl")
+
+write_jsonl(fine_tune_validation, "fine_tune_validation.jsonl")
+```
+This is how the file looks like
+
+![]()
