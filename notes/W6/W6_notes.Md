@@ -1163,4 +1163,31 @@ FineTuningJob(id='ftjob-SzYMjZoOvgQjuDjlTcNZdmEU', created_at=1743085728, error=
 Once it's done, we received an email from OpenAi
 ![openai_finetune_confirmation](https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W6/img17_openai_model_trained_confirmation.png)
 
+### Step 3. Test our fine-tuned model
+
+We grab the new model name:
+```python
+fine_tuned_model_name = openai.fine_tuning.jobs.retrieve(job_id).fine_tuned_model
+```
+`fine_tuned_model_name`
+
+`'ft:gpt-4o-mini-2024-07-18:personal:pricer:BFidFqcy'`
+
+we defined a new model function (check the name of the model)
+```python
+# The function for gpt-4o-mini
+
+def gpt_fine_tuned(item):
+    response = openai.chat.completions.create(
+        model=fine_tuned_model_name, 
+        messages=messages_for(item),
+        seed=42,
+        max_tokens=7
+    )
+    reply = response.choices[0].message.content
+    return get_price(reply)
+```
+```python
+Tester.test(gpt_fine_tuned, test)
+```
 
