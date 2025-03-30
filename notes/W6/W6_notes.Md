@@ -1191,3 +1191,27 @@ def gpt_fine_tuned(item):
 Tester.test(gpt_fine_tuned, test)
 ```
 ![fine_tuned_result_v1](https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W6/img19_fine_tuned_result_v1.png)
+
+The results got worse after fine-tunnning. 
+
+Here is where we ->> **Evaluate the results**, **tweak** and **repeat** !! 
+
+# Summary and Takeaways Fine-tunning a Frontier Models
+
+We have to keep in mind Frontier Models alrady have been training with billion or trillions of parameters
+There might be scenarios were fine-tunning is useful and some others that's not. 
+
+## Key Objectives of Fine-Tuning for Frontier models
+
+1. **Setting style or tone** in a way that can't be achieved with prompting  
+2. **Improving the reliability** of producing a type of output  
+3. **Correcting failures** to follow complex prompts  
+4. **Handling edge cases**  
+5. **Performing a new skill or task** that's hard to articulate in a prompt  
+
+---
+
+## A problem like ours doesn't benefit significantly from Fine-Tuning
+
+- The problem and style of output can be clearly specified in a prompt  
+- The model can take advantage of its enormous world knowledge from its pre-training; providing a few hundred prices doesn't help 
