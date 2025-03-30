@@ -782,11 +782,11 @@ with open('test.pkl', 'rb') as file:
 > Tester.test(my_prediction_function)
 > ```
 
-Check the  Tester code ![here}(https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/code_examples/testing.py)
+Check the  Tester code ![here](https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/code_examples/testing.py)
 
-<detail><summary><strong> ** Tester Code Explanation ** </strong></summary>
-# Code Explanation for Beginners
+<details><summary><strong> **Tester Code Explanation** </strong></summary>
 
+# Tester code 
 This code is a testing framework that evaluates price prediction models. Let me break it down step by step:
 
 ## The `Tester` Class
@@ -873,5 +873,4 @@ This code helps evaluate how good a price prediction model is by:
 2. Showing color-coded results for each prediction
 3. Visualizing all predictions in a chart
 4. Calculating overall performance metrics
-
-</detail>
+</details>
