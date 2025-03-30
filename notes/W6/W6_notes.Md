@@ -748,23 +748,17 @@ In this section we explored different traditional ML model vs LLM model for our 
 ![traditional_ML](https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W6/img13_traditional_ML.png)
 
 ---
-## Training Step1:
-### Loading the pkl files
+## 1. Testing Frontier Models:
 
-Let's avoid curating all our data again! Load in the pickle files
+Now we put Frontier Models to the test.
 
-If you didn't already create these, you can also download them from my google drive
-https://drive.google.com/drive/folders/1f_IZGybvs9o0J5sb3xmtTEQB3BXllzrW
+### 2 important points:
 
-But note that the files are quite large - you might need to get a coffee!
+It's important to appreciate that we aren't Training the frontier models. We're only providing them with the Test dataset to see how they perform. They don't gain the benefit of the 400,000 training examples that we provided to the Traditional ML models.
 
-```python
-with open('train.pkl', 'rb') as file:
-    train = pickle.load(file)
+HAVING SAID THAT...
 
-with open('test.pkl', 'rb') as file:
-    test = pickle.load(file)
-```
+It's entirely possible that in their monstrously large training data, they've already been exposed to all the products in the training AND the test set. So there could be test "contamination" here which gives them an unfair advantage. We should keep that in mind.
 
 > :memo: **Note:**
 >
@@ -876,3 +870,88 @@ This code helps evaluate how good a price prediction model is by:
 </details>
 
 * Check Week 6 Day 3 lab for reviewing the ML examples 
+
+```python
+# imports
+
+import os
+import re
+import math
+import json
+import random
+from dotenv import load_dotenv
+from huggingface_hub import login
+from items import Item
+import matplotlib.pyplot as plt
+import numpy as np
+import pickle
+from collections import Counter
+from openai import OpenAI
+from anthropic import Anthropic
+
+# moved our Tester into a separate package
+# call it with Tester.test(function_name, test_dataset)
+
+from testing import Tester
+```
+```python
+# environment
+
+load_dotenv()
+os.environ['OPENAI_API_KEY'] = os.getenv('OPENAI_API_KEY', 'your-key-if-not-using-env')
+os.environ['ANTHROPIC_API_KEY'] = os.getenv('ANTHROPIC_API_KEY', 'your-key-if-not-using-env')
+os.environ['HF_TOKEN'] = os.getenv('HF_TOKEN', 'your-key-if-not-using-env')
+# Log in to HuggingFace
+
+hf_token = os.environ['HF_TOKEN']
+login(hf_token, add_to_git_credential=True)
+
+openai = OpenAI()
+claude = Anthropic()
+%matplotlib inline
+```
+### Loading the pkl files
+Let's avoid curating all our data again! Load in the pickle files
+
+If you didn't already create these, you can also download them from my google drive
+https://drive.google.com/drive/folders/1f_IZGybvs9o0J5sb3xmtTEQB3BXllzrW
+
+But note that the files are quite large - you might need to get a coffee!
+
+```python
+with open('train.pkl', 'rb') as file:
+    train = pickle.load(file)
+
+with open('test.pkl', 'rb') as file:
+    test = pickle.load(file)
+```
+### First, the humble but mighty GPT-4o-mini
+```python
+# First let's work on a good prompt for a Frontier model
+# Notice that I'm removing the " to the nearest dollar"
+# When we train our own models, we'll need to make the problem as easy as possible, 
+# but a Frontier model needs no such simplification.
+
+def messages_for(item):
+    system_message = "You estimate prices of items. Reply only with the price, no explanation"
+    user_prompt = item.test_prompt().replace(" to the nearest dollar","").replace("\n\nPrice is $","")
+    return [
+        {"role": "system", "content": system_message},
+        {"role": "user", "content": user_prompt},
+        {"role": "assistant", "content": "Price is $"}
+    ]
+```
+```python
+# Try this out
+messages_for(test[0])
+```
+>[NOte:]
+> # A utility function to extract the price from a string
+>
+> def get_price(s):
+>     s = s.replace('$','').replace(',','')
+>    match = re.search(r"[-+]?\d*\.\d+|\d+", s)
+>    return float(match.group()) if match else 0
+
+> get_price("The price is roughly $99.99 because blah blah")
+> 99.99
