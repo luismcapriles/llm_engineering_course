@@ -745,4 +745,4 @@ In this section we explored different traditional ML model vs LLM model for our 
 * word2vec & Random Forest
 * word2vec & SVR (Support Vector Regression)
 
-![traditional_ML]()
+![traditional_ML](https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W6/img13_traditional_ML.png)
