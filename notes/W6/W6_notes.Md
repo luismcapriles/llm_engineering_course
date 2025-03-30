@@ -967,13 +967,34 @@ def gpt_4o_mini(item):
         model="gpt-4o-mini", 
         messages=messages_for(item),
         seed=42,
-        max_tokens=5
+        max_tokens=5 #limiting the #of tokens in the output safeguard $$
     )
     reply = response.choices[0].message.content
     return get_price(reply)
 ```
 ```python
 #passing the function and the test data (trying the best without been trained)
+#this cost some $ cents 
 Tester.test(gpt_4o_mini, test)
 ```
+### Testing Claude 3.5 Sonet 
 
+```python
+def claude_3_point_5_sonnet(item):
+    messages = messages_for(item)
+    system_message = messages[0]['content'] # here we are stracting the system messages from the dic of items
+    messages = messages[1:] # here we are passing the rest of items without the systems message
+    response = claude.messages.create(
+        model="claude-3-5-sonnet-20240620",
+        max_tokens=5,
+        system=system_message,
+        messages=messages
+    )
+    reply = response.content[0].text
+    return get_price(reply)
+```
+```python
+# The function for Claude 3.5 Sonnet
+# It also cost me about 1-2 cents to run this (pricing may vary by region)
+Tester.test(claude_3_point_5_sonnet, test)
+```
