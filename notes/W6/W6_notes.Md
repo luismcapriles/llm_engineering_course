@@ -770,7 +770,7 @@ with open('test.pkl', 'rb') as file:
 >
 > To test the model You write a function of this form:
 >
-> ```
+> ```python
 > def my_prediction_function(item):
 >     # my code here
 >     return my_estimate
@@ -778,7 +778,99 @@ with open('test.pkl', 'rb') as file:
 >
 > And then you pass it Tester to evaluate the model
 >
-> `Tester.test(my_prediction_function)`
+> ```python 
+> Tester.test(my_prediction_function)
+> ```
 
+Check the  Tester code ![here]()
+<detail><summary><strong> ** Tester Code Explanation ** </strong></summary>
+# Code Explanation for Beginners
 
+This code is a testing framework that evaluates price prediction models. Let me break it down step by step:
 
+## The `Tester` Class
+
+This class helps you test how well a function predicts prices by comparing predictions against actual prices.
+
+### Initialization (Setup)
+```python
+def __init__(self, predictor, title=None, data=test, size=250):
+```
+When you create a new Tester:
+- `predictor`: The function that predicts prices
+- `title`: Optional name for your test
+- `data`: The dataset to test with (defaults to a variable called `test`)
+- `size`: How many data points to test (defaults to 250)
+
+It also creates empty lists to store results:
+- `guesses`: Predicted prices
+- `truths`: Actual prices
+- `errors`: How far off each prediction was
+- `sles`: Square Log Errors (a special error measurement)
+- `colors`: Color codes for visualizing results
+
+### Color Coding Results
+```python
+def color_for(self, error, truth):
+```
+This method assigns a color based on how accurate the prediction was:
+- `green`: Very accurate (error < 40 or less than 20% off)
+- `orange`: Somewhat accurate (error < 80 or less than 40% off)
+- `red`: Inaccurate (everything else)
+
+### Testing a Single Data Point
+```python
+def run_datapoint(self, i):
+```
+For each item in your data:
+1. Gets a prediction from your function
+2. Finds the actual price (`truth`)
+3. Calculates how far off you were (`error`)
+4. Calculates a logarithmic error (`sle`)
+5. Assigns a color based on accuracy
+6. Saves all results to the lists
+7. Prints a color-coded line showing the results
+
+### Visualizing Results
+```python
+def chart(self, title):
+```
+Creates a scatter plot where:
+- X-axis shows actual prices
+- Y-axis shows predicted prices
+- Perfect predictions would fall on a blue diagonal line
+- Each prediction is a dot colored by its accuracy
+
+### Generating a Summary Report
+```python
+def report(self):
+```
+1. Calculates average error across all predictions
+2. Calculates Root Mean Square Logarithmic Error (RMSLE) - a common metric
+3. Counts how many "green" (accurate) predictions you had
+4. Creates a title with summary statistics
+5. Displays the chart with this title
+
+### Running the Full Test
+```python
+def run(self):
+```
+1. Tests each data point one by one
+2. Generates the final report
+
+### Class Method for Quick Testing
+```python
+@classmethod
+def test(cls, function):
+```
+A shortcut to create a Tester and run it in one line: `Tester.test(your_function)`
+
+## What This Code Is For
+
+This code helps evaluate how good a price prediction model is by:
+1. Testing it on many examples
+2. Showing color-coded results for each prediction
+3. Visualizing all predictions in a chart
+4. Calculating overall performance metrics
+
+</detail>
