@@ -767,18 +767,18 @@ with open('test.pkl', 'rb') as file:
 ```
 
 > :memo: **Note:**
-
-To test the model You write a function of this form:
-
-```
-def my_prediction_function(item):
-    # my code here
-    return my_estimate
-```
-
-And then you call:
-
-`Tester.test(my_prediction_function)`
-
-To evaluate your model.
 >
+> To test the model You write a function of this form:
+>
+> ```
+> def my_prediction_function(item):
+>     # my code here
+>     return my_estimate
+> ```
+>
+> And then you call:
+>
+> `Tester.test(my_prediction_function)`
+>
+> To evaluate your model.
+
