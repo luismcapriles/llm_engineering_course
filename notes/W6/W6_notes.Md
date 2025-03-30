@@ -1126,17 +1126,20 @@ We give a name to this new trained Model: {"project": "gpt-pricer"}
 ```python
 wandb_integration = {"type": "wandb", "wandb": {"project": "gpt-pricer"}}
 ```
-We can retreive the training file id by 
+We can retreive the training and the validation file ids by 
 ```python
 train_file.id
 ```
 `'file-1Mzc4RS6Tn9SdDtLqMncjm'`
 
+```python
+validation_file.id
+```
+`'file-9ThDorj9CEn9YRSRd6y4eq'`
+
 The idea now is to evaluate how the training performance goes by looking at different DSc metrics like trainning loss (the smaller the better)
 
-[]
-
-
+![training_performance](https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W6/img18_training_performance_platform.png)
 
 Now let's fine-tune the model !!
 
