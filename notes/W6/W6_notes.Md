@@ -956,5 +956,4 @@ messages_for(test[0])
 > ```python
 > get_price("The price is roughly $99.99 because blah blah")
 > ```
-> 99.99
-> ``
+> `99.99`
