@@ -776,9 +776,9 @@ with open('test.pkl', 'rb') as file:
 >     return my_estimate
 > ```
 >
-> And then you call:
+> And then you pass it Tester to evaluate the model
 >
 > `Tester.test(my_prediction_function)`
->
-> To evaluate your model.
+
+
 
