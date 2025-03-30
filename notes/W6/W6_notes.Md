@@ -1077,4 +1077,4 @@ write_jsonl(fine_tune_validation, "fine_tune_validation.jsonl")
 ```
 This is how the file looks like
 
-![]()
+![training_file_jsonl_format](https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W6/img16_training_file_jsonl.png)
