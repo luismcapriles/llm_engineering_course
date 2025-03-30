@@ -782,7 +782,8 @@ with open('test.pkl', 'rb') as file:
 > Tester.test(my_prediction_function)
 > ```
 
-Check the  Tester code ![here]()
+Check the  Tester code ![here}(https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/code_examples/testing.py)
+
 <detail><summary><strong> ** Tester Code Explanation ** </strong></summary>
 # Code Explanation for Beginners
 
