@@ -977,6 +977,8 @@ def gpt_4o_mini(item):
 #this cost some $ cents 
 Tester.test(gpt_4o_mini, test)
 ```
+![gpt_4o_mini_no_training](https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W6/img14_testing_gpt4o_no_training.png)
+
 ### Testing Claude 3.5 Sonet 
 
 ```python
@@ -998,3 +1000,4 @@ def claude_3_point_5_sonnet(item):
 # It also cost me about 1-2 cents to run this (pricing may vary by region)
 Tester.test(claude_3_point_5_sonnet, test)
 ```
+![claude_no_training](https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W6/img15_testing_claude_3_5_sonet_no_training.png)
