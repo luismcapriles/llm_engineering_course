@@ -1190,4 +1190,4 @@ def gpt_fine_tuned(item):
 ```python
 Tester.test(gpt_fine_tuned, test)
 ```
-
+![fine_tuned_result_v1](https://github.com/luismcapriles/llm_engineering_course/blob/main/notes/W6/img19_fine_tuned_result_v1.png)
