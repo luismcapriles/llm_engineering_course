@@ -727,8 +727,21 @@ dataset.push_to_hub(DATASET_NAME, private=True)
 
 with open('train.pkl', 'wb') as file:
     pickle.dump(train, file)
-
 with open('test.pkl', 'wb') as file:
     pickle.dump(test, file)
 ```
+---
+# Training the Model 
+In this section we explored different traditional ML model vs LLM model for our use case scenario. I skipped the details of traditional ML. 
 
+Importance of starting with a Baseline Model
+
+## Start cheap and simple  
+An LLM might not be the right solution  (generating a number predicted is not a natural function of LLM) 
+
+### Traditional ML model as starting Point:
+
+* Feature engineering & Linear Regression
+* Bag of words & Linear Regression
+* word2vec & Random Forest
+* word2vec & SVR (Support Vector Regression)
