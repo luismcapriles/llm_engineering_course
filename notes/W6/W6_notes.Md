@@ -1201,6 +1201,8 @@ Here is where we ->> **Evaluate the results**, **tweak** and **repeat** !!
 We have to keep in mind Frontier Models have been trained with billion or trillions of parameters
 There might be scenarios were fine-tunning is useful and some others that's not. 
 
+Fine-tuning a frontier model is effective for adjusting tone or adding constraints, but it's not a good use case for absorbing knowledge like this
+
 ## Key Objectives of Fine-Tuning for Frontier models
 
 1. **Setting style or tone** in a way that can't be achieved with prompting  
